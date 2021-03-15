@@ -1,0 +1,35 @@
+html {
+  overflow-y: hidden;
+}
+a {
+  color: inherit !important;
+  text-decoration: none;
+}
+.main {
+  padding: 10px;
+}
+.scroll {
+  padding: 0 !important;
+  overflow-y: scroll;
+  display: block;
+  position: fixed;
+  top: 64px;
+  right: 0;
+  left: 56px;
+  bottom: 0;
+}
+.red-txt { color: red !important; }
+::-webkit-scrollbar { width: 0; }
+.center-div {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.center {
+  margin: 0 auto;
+  width: max-content;
+}
+.mixtreeview {
+  margin-top: 15px;
+}

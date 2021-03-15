@@ -1,12 +1,12 @@
 <template>
-  <div class="home center-div">
-    Welcome on the MixJs Application !
+  <div class="settings center-div">
+    Comgin soon (settings)
   </div>
 </template>
 
 <script>
 export default {
-  name: "Home",
+  name: "Settings",
   components: {}
 };
 </script>
