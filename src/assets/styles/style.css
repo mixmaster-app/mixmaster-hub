@@ -6,6 +6,7 @@ a {
   text-decoration: none;
 }
 .main {
+  position: relative;
   padding: 10px;
 }
 .scroll {
@@ -13,13 +14,17 @@ a {
   overflow-y: scroll;
   display: block;
   position: fixed;
-  top: 64px;
+  top: 20px;
   right: 0;
   left: 56px;
   bottom: 0;
 }
 .red-txt { color: red !important; }
 ::-webkit-scrollbar { width: 0; }
+.drag {
+  -webkit-app-region: drag;
+  height:100%
+}
 .center-div {
   position: fixed;
   top: 50%;

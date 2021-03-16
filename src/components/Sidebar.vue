@@ -1,5 +1,12 @@
 <template>
-  <v-navigation-drawer persistent mini-variant v-model="isActive" fixed app>
+  <v-navigation-drawer
+    permanent
+    persistent
+    mini-variant
+    v-model="isActive"
+    fixed
+    app
+  >
     <v-list>
       <v-list-item to="/">
         <v-img src="@/assets/logo.png"> </v-img>

@@ -22,7 +22,7 @@ async function castResponseToHench(data) {
  */
 async function getAllHenchs() {
   return new Promise((resolve, reject) => {
-    get(`/henchs`)
+    get(`/henchs?size=80`)
       .then(result => {
         return resolve(castResponseToHenchArray(result.data));
       })

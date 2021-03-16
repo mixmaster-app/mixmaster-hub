@@ -1,12 +1,9 @@
 <template>
   <div>
-    <v-text-field
-      v-if="treeData.nodelevel && treeData.nodelevel == 1"
-      v-model="searchValue"
-      label="Hench"
-      type="text"
-      @keydown="emitSearch"
-    ></v-text-field>
+    <HenchSearchInput
+      @updateHench="emitSearch"
+      v-if="treeData.nodelevel == 1"
+    />
     <table v-if="treeData.hench">
       <tr>
         <td
@@ -35,12 +32,12 @@
                 {{ treeData.hench.libelle }} <br />
                 <v-select
                   v-if="treeData.type && treeData.type == 'select'"
-                  :items="this.getChild(treeData.hench.henchMixs)"
-                  v-model="defaultSelectValue"
+                  :items="this.getChild()"
+                  v-model="defaultSelectValue.value"
                   item-text="libelle"
                   item-value="value"
                   label="MixList"
-                  @change="MixListUpdate"
+                  @change="mixListUpdate"
                 ></v-select>
               </div>
             </div>
@@ -74,9 +71,11 @@
 
 <script>
 // https://github.com/tower1229/Vue-Tree-Chart/blob/master/src/components/TreeChart.vue
-import { getOneHenchWhereLibelleContains } from "@/api/hench/HenchAction.js";
+import HenchSearchInput from "@/components/hench/HenchSearchInput.vue";
+
 export default {
   name: "TreeChart",
+  components: { HenchSearchInput },
   props: ["json"],
   data() {
     return {
@@ -84,7 +83,7 @@ export default {
       searchValue: "",
       defaultSelectValue: {
         libelle: `Choose a value`,
-        value: false
+        value: -1
       }
     };
   },
@@ -109,15 +108,24 @@ export default {
     }
   },
   methods: {
-    getChild(henchMixs) {
-      if (henchMixs) {
-        const mixChild = [];
+    getChild() {
+      const henchMixsList = this.treeData.hench.henchMixs;
+      if (!henchMixsList || henchMixsList.length == 0) {
+        let mixChild = [
+          {
+            libelle: `No mix available`,
+            value: -1
+          }
+        ];
+        return mixChild;
+      } else {
+        let mixChild = [];
         let i = 0;
         mixChild.push({
           libelle: `Choose a value`,
-          value: false
+          value: -1
         });
-        for (const item of henchMixs) {
+        for (const item of henchMixsList) {
           mixChild.push({
             libelle: `${item.henchLeft.libelle} + ${item.henchRight.libelle}`,
             value: i
@@ -125,11 +133,9 @@ export default {
           i++;
         }
         return mixChild;
-      } else {
-        return [];
       }
     },
-    MixListUpdate(val) {
+    mixListUpdate(val) {
       if (val === false) return;
       this.emitChildMix({
         nodelevel: this.treeData.nodelevel,
@@ -138,12 +144,8 @@ export default {
       return;
     },
     emitSearch(e) {
-      if (e.keyCode === 13 || e.keyCode === 9) {
-        const hench = this.search();
-        hench.then(res => {
-          this.$emit("emitSearch", res);
-        });
-      }
+      this.$emit("emitSearch", e);
+      this.$forceUpdate();
     },
     emitChildMix(val) {
       this.$emit("emitChildMix", val);
@@ -151,10 +153,6 @@ export default {
     toggleExtend: function(treeData) {
       treeData.extend = !treeData.extend;
       this.$forceUpdate();
-    },
-    async search() {
-      const hench = await getOneHenchWhereLibelleContains(this.searchValue);
-      return hench;
     }
   }
 };

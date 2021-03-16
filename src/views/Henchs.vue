@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <v-toolbar dense floating>
+    <v-toolbar dense floating style="top:10px;">
       <v-text-field
         hide-details
         single-line

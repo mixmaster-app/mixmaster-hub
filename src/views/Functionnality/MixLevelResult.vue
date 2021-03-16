@@ -38,12 +38,7 @@
                   />
                 </v-avatar>
               </v-badge>
-              <v-text-field
-                v-model="searchLeft"
-                label="Search"
-                type="text"
-                @keydown="searchKeyDownL"
-              ></v-text-field>
+              <HenchSearchInput @updateHench="emitHenchL" />
               <v-text-field
                 v-model.number="lvlLeftHench"
                 label="Hench left"
@@ -69,12 +64,7 @@
                   />
                 </v-avatar>
               </v-badge>
-              <v-text-field
-                v-model="searchRight"
-                label="Search"
-                type="text"
-                @keydown="searchKeyDownR"
-              ></v-text-field>
+              <HenchSearchInput @updateHench="emitHenchR" />
               <v-text-field
                 v-model.number="lvlRightHench"
                 label="Hench right"
@@ -99,9 +89,11 @@
 
 <script>
 import { Hench } from "@/metier/hench/Hench.js";
-import { getOneHenchWhereLibelleContains } from "@/api/hench/HenchAction.js";
+// import { getOneHenchWhereLibelleContains } from "@/api/hench/HenchAction.js";
+import HenchSearchInput from "@/components/hench/HenchSearchInput.vue";
 
 export default {
+  components: { HenchSearchInput },
   data() {
     return {
       searchLeft: "",
@@ -124,30 +116,13 @@ export default {
         Math.floor(mLevel) +
         Math.floor((Math.floor(pLevelLeft) + Math.floor(pLevelRight)) / 2 / 10);
     },
-    searchKeyDownR(e) {
-      if (e.keyCode === 13 || e.keyCode === 9) {
-        if (this.searchRight.trim().length > 0) {
-          this.research(this.searchRight, false);
-        }
-      }
+    emitHenchR(henchRight) {
+      this.henchRight = henchRight;
+      this.maxLvlRightHench = henchRight.levelMaximum;
     },
-    searchKeyDownL(e) {
-      if (e.keyCode === 13 || e.keyCode === 9) {
-        if (this.searchLeft.trim().length > 0) {
-          this.research(this.searchLeft, true);
-        }
-      }
-    },
-    async research(term, isLeft) {
-      getOneHenchWhereLibelleContains(term).then(res => {
-        if (isLeft) {
-          this.henchLeft = res;
-          this.maxLvlLeftHench = res.levelMaximum;
-        } else {
-          this.henchRight = res;
-          this.maxLvlRightHench = res.levelMaximum;
-        }
-      });
+    emitHenchL(henchLeft) {
+      this.henchLeft = henchLeft;
+      this.maxLvlLeftHench = henchLeft.levelMaximum;
     }
   }
 };
