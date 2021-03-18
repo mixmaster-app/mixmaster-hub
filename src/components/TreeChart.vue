@@ -26,19 +26,39 @@
               @click="$emit('click-node', treeData)"
             >
               <div class="avat">
-                <img :src="treeData.hench.imageUrl" />
+                <v-badge color="#E7E7E7" avatar overlap v-if="treeData.item">
+                  <template v-slot:badge v-if="treeData.item.getImagePath()">
+                    <v-avatar :title="treeData.item.libelle">
+                      <v-img :src="treeData.item.getImagePath()"></v-img>
+                    </v-avatar>
+                  </template>
+                  <v-avatar size="70" color="white">
+                    <!-- <img :src="treeData.hench.imageUrl" /> -->
+                    <img :src="treeData.hench.imageAvatar" />
+                  </v-avatar>
+                </v-badge>
+                <v-avatar size="70" color="white" v-else>
+                  <!-- <img :src="treeData.hench.imageUrl" /> -->
+                  <img :src="treeData.hench.imageAvatar" />
+                </v-avatar>
               </div>
               <div class="name">
-                {{ treeData.hench.libelle }} <br />
-                <v-select
-                  v-if="treeData.type && treeData.type == 'select'"
-                  :items="this.getChild()"
-                  v-model="defaultSelectValue.value"
-                  item-text="libelle"
-                  item-value="value"
-                  label="MixList"
+                {{ treeData.hench.libelle }}<br />
+                <select
+                  class="select"
+                  :key="treeData.hench.id"
+                  v-model="selectKey"
+                  style="border: 1px solid black"
                   @change="mixListUpdate"
-                ></v-select>
+                >
+                  <option
+                    v-for="(item, index) in this.getChild()"
+                    :value="item.value"
+                    :key="index"
+                    :selected="item.selected"
+                    >{{ item.libelle }}
+                  </option>
+                </select>
               </div>
             </div>
           </div>
@@ -80,11 +100,8 @@ export default {
   data() {
     return {
       treeData: this.json,
-      searchValue: "",
-      defaultSelectValue: {
-        libelle: `Choose a value`,
-        value: -1
-      }
+      selectKey: -1,
+      searchValue: ""
     };
   },
   watch: {
@@ -113,6 +130,7 @@ export default {
       if (!henchMixsList || henchMixsList.length == 0) {
         let mixChild = [
           {
+            selected: true,
             libelle: `No mix available`,
             value: -1
           }
@@ -122,11 +140,13 @@ export default {
         let mixChild = [];
         let i = 0;
         mixChild.push({
+          selected: true,
           libelle: `Choose a value`,
           value: -1
         });
         for (const item of henchMixsList) {
           mixChild.push({
+            selected: false,
             libelle: `${item.henchLeft.libelle} + ${item.henchRight.libelle}`,
             value: i
           });
@@ -136,15 +156,17 @@ export default {
       }
     },
     mixListUpdate(val) {
-      if (val === false) return;
+      const index = val.target.value;
+      if (index === false) return;
       this.emitChildMix({
         nodelevel: this.treeData.nodelevel,
-        henchMix: this.treeData.hench.henchMixs[val]
+        henchMix: this.treeData.hench.henchMixs[index]
       });
       return;
     },
     emitSearch(e) {
       this.$emit("emitSearch", e);
+      this.$set(this, "selectKey", -1);
       this.$forceUpdate();
     },
     emitChildMix(val) {
@@ -262,15 +284,14 @@ td {
   display: inline-block;
   z-index: 2;
   width: 10em;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .node .person .avat {
   display: block;
-  width: 10em;
   height: 4em;
-  overflow: hidden;
+  /* overflow: hidden; */
   background: #fff;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   box-sizing: border-box;
   margin: 0 auto;
   width: max-content;

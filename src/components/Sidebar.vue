@@ -37,13 +37,8 @@ export default {
       isActive: this.active,
       tabs: [
         {
-          iconName: "mdi-home",
-          linksTo: "/",
-          linkText: "Accueil"
-        },
-        {
           iconName: "mdi-dots-grid",
-          linksTo: "/functionnality",
+          linksTo: "/",
           linkText: "Fonctionnalités"
         },
         // {

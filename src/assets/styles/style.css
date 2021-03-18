@@ -20,10 +20,19 @@ a {
   bottom: 0;
 }
 .red-txt { color: red !important; }
-::-webkit-scrollbar { width: 0; }
+/* ::-webkit-scrollbar { width: 0; } */
+.version {
+  font-weight: bold;
+  margin-left: 5px;
+}
+.syst-bar {
+  user-select: none;
+}
 .drag {
+  margin-left: 1%;
+  margin-right: 1%;
   -webkit-app-region: drag;
-  height:100%
+  height:80%;
 }
 .center-div {
   position: fixed;
@@ -37,4 +46,14 @@ a {
 }
 .mixtreeview {
   margin-top: 15px;
+}
+.select {
+  width: inherit;
+  border-radius: 3px;
+  border: 1px solid #333333;
+  padding-left: 3px;
+  -webkit-appearance: menulist !important; /* override vuetify style */
+  -moze-appearance: menulist !important; /* override vuetify style */
+  appearance: menulist !important; /* override vuetify style */
+  margin-bottom: 2rem; /* demo purpose */
 }

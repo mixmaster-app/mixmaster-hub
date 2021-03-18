@@ -3,18 +3,13 @@
     <v-row no-gutters>
       <v-card
         class="ma-3"
-        width="128"
-        height="128"
+        max-height="128"
         v-for="(func, index) in functionnalityList"
         :key="index"
         :to="func.path"
+        :title="func.name"
       >
-        <v-img
-          class="white--text align-end"
-          height="100%"
-          :src="getFuncImg(func.imageName)"
-          :alt="func.name"
-        />
+        <v-img :src="getFuncImg(func.imageName)" :alt="func.name"> </v-img>
       </v-card>
     </v-row>
   </div>
@@ -26,19 +21,19 @@ export default {
     return {
       functionnalityList: [
         {
-          name: "Mix level Result",
-          description: "Calcul le level du résultat d'un mix de deux henchs",
+          name: "Mix Level result",
+          description: "Calcul le level du résultat d'un mix",
           path: "/Functionnality/mixlvlresult",
           imageName: "01_mixlevelresult"
         },
         {
-          name: "Recherhce de henchs",
+          name: "Search henchs",
           description: "Affiche la page de recherche des henchs",
           path: "/henchs",
           imageName: "03_henchlist"
         },
         {
-          name: "Mix tree view",
+          name: "Mix Tree view",
           description: "Affiche l'arbre de mix d'un hench",
           path: "/Functionnality/mixtreeview",
           imageName: "02_mixtreeview"
@@ -48,18 +43,11 @@ export default {
   },
   methods: {
     getFuncImg(imageName) {
-      let result = require(`@/views/Functionnality/assets/default.png`);
       try {
-        result = require(`@/views/Functionnality/assets/${imageName}.png`);
+        return require(`@/assets/functionnality/${imageName}.png`);
       } catch (e) {
-        if (e.message.includes("find module")) {
-          console.error(`Image not found "${imageName}"`);
-        } else {
-          console.error(`Unkown error`);
-        }
+        return require(`@/assets/functionnality/default.png`);
       }
-
-      return result;
     }
   }
 };

@@ -15,7 +15,7 @@
         <v-img
           height="150"
           min-height="150"
-          width="65"
+          width="40%"
           contain
           style="margin: 0 auto;"
           :src="data.imageUrl"
@@ -59,6 +59,7 @@
 <script>
 import { Hench } from "@/metier/hench/Hench.js";
 import HenchModal from "@/components/hench/HenchModal.vue";
+// import MarqueeText from "vue-marquee-text-component";
 
 export default {
   name: "HenchCard",

@@ -29,18 +29,19 @@ export default {
       const aChildren = [
         {
           hench: await getOneById(mix.henchLeft.id),
+          item: mix.itemLeft,
           nodelevel: uuid.v1(),
           type: "select"
         },
         {
           hench: await getOneById(mix.henchRight.id),
+          item: mix.itemRight,
           nodelevel: uuid.v1(),
           type: "select"
         }
       ];
       const CHILDREN = this.checkChildNode(this.treeData, nodelevel, aChildren);
       this.$set(this.treeData, "children", CHILDREN);
-      // console.log(this.treeData);
     },
     checkChildNode(node, nodelevel, aChild) {
       if (node.nodelevel == nodelevel) {

@@ -1,12 +1,12 @@
 <template>
-  <v-system-bar height="30" app>
+  <v-system-bar height="30" app class="syst-bar">
     <v-img
       src="@/assets/logo.png"
       contain
       max-height="24px"
       max-width="24px"
     ></v-img>
-    Mixmaster
+    Mixmaster <span class="version">({{ this.package.version }})</span>
     <v-spacer class="drag"></v-spacer>
     <div
       class="pa-2 green rounded-circle d-inline-block mr-1"
@@ -29,11 +29,14 @@
 
 <script>
 import { ipcRenderer } from "electron";
+import pjson from "@/../package.json";
 
 export default {
   name: "Systembar",
   data() {
-    return {};
+    return {
+      package: pjson
+    };
   },
   methods: {
     close() {

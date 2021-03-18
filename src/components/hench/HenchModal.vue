@@ -1,23 +1,23 @@
 <template>
-  <v-dialog v-model="isActiveModal" width="900" max-height="450">
+  <v-dialog v-model="isActiveModal" width="80%" max-height="450">
     <v-card>
       <v-tabs
         fixed-tabs
         background-color="gray"
         color="white"
         dark
-        right
         v-model="firstTab"
       >
-        <v-tab grow disabled>
-          {{ data.libelle }}
-          <v-img
-            class="ma-2"
-            max-height="16"
-            max-width="16"
-            :src="data.getImageTypePath()"
-          >
-          </v-img>
+        <v-tab
+          disabled
+          @mouseenter="pause(!isPaused)"
+          @mouseleave="isPaused = false"
+        >
+          <marquee-text :repeat="2" :duration="5" :paused="isPaused">
+            <span class="ml-10">
+              {{ data.libelle }}
+            </span>
+          </marquee-text>
         </v-tab>
         <v-tab :key="1" @click="model = 'tab-1'">Stats</v-tab>
         <v-tab :key="2" @click="model = 'tab-2'">Zones</v-tab>
@@ -29,12 +29,20 @@
         <v-row>
           <v-col cols="12" sm="4">
             <v-card :elevation="4">
+              <div class="pa-2 mt-2 ml-2" :title="data.type.libelle">
+                <v-img
+                  max-height="24"
+                  max-width="24"
+                  :src="data.getImageTypePath()"
+                >
+                </v-img>
+              </div>
               <v-img
-                height="416"
-                min-height="416"
-                max-width="50%"
+                height="350"
+                min-height="350"
+                max-width="70%"
                 contain
-                style="margin: 0 auto;"
+                style="margin: 0 auto; border:1px solid black"
                 :src="data.imageUrl"
               >
               </v-img>
@@ -91,10 +99,19 @@
                     </span>
                     <ul id="mixs" v-if="data.henchMixs.length >= 1">
                       <li v-for="mix in data.henchMixs" :key="mix.id">
-                        {{ mix.henchLeft.libelle }} ({{ mix.itemLeft.libelle }})
-                        + {{ mix.henchRight.libelle }} ({{
+                        {{ mix.henchLeft.libelle }}
+                        {{
+                          mix.itemLeft.libelle
+                            ? `(${mix.itemLeft.libelle})`
+                            : ""
+                        }}
+                        +
+                        {{ mix.henchRight.libelle }}
+                        {{
                           mix.itemRight.libelle
-                        }})
+                            ? `(${mix.itemRight.libelle})`
+                            : ""
+                        }}
                       </li>
                     </ul>
                   </v-card-text>
@@ -120,18 +137,28 @@
 </template>
 
 <script>
+import MarqueeText from "vue-marquee-text-component";
+
 export default {
   name: "HenchModal",
+  components: { MarqueeText },
   props: {
     activeModal: Boolean,
     data: Object
   },
   data() {
     return {
+      isPaused: false,
       isActiveModal: this.activeModal,
       firstTab: 1,
       model: "tab-1"
     };
+  },
+  methods: {
+    pause(bool) {
+      console.log("enter");
+      this.$set(this, "isPaused", bool);
+    }
   },
   watch: {
     activeModal() {

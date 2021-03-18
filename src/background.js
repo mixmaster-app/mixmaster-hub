@@ -4,7 +4,6 @@ import { app, protocol, BrowserWindow, ipcMain } from "electron";
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
 import installExtension /*, { VUEJS_DEVTOOLS }*/ from "electron-devtools-installer";
 const isDevelopment = process.env.NODE_ENV !== "production";
-const { ipcMan } = require("electron");
 
 let win = null;
 
@@ -44,14 +43,18 @@ async function createWindow() {
   });
 }
 
-ipcMain.on("close-app", (evt, arg) => {
+ipcMain.on("close-app", () => {
   app.quit();
 });
-ipcMain.on("minimize-app", (evt, arg) => {
+ipcMain.on("minimize-app", () => {
   win.minimize();
 });
-ipcMain.on("maximize-app", (evt, arg) => {
-  win.maximize();
+ipcMain.on("maximize-app", () => {
+  if (win.isMaximized()) {
+    win.unmaximize();
+  } else {
+    win.maximize();
+  }
 });
 // Quit when all windows are closed.
 app.on("window-all-closed", () => {

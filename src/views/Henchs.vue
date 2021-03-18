@@ -12,7 +12,7 @@
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
     </v-toolbar>
-    <v-row no-gutters>
+    <v-row no-gutters class="mt-3">
       <div class="center-div">
         <p v-if="noResult == true && !loading">Aucun hench trouvé</p>
         <v-progress-circular v-if="loading" indeterminate color="black">
