@@ -8,7 +8,7 @@
       <span style="user-select:none">Mixmaster</span>
     </v-app-bar> -->
 
-    <v-main class="scroll">
+    <v-main class="scroll" style="margin-top: 9px;">
       <router-view></router-view>
     </v-main>
   </v-app>

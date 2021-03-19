@@ -28,7 +28,10 @@
               <div class="avat">
                 <v-badge color="#E7E7E7" avatar overlap v-if="treeData.item">
                   <template v-slot:badge v-if="treeData.item.getImagePath()">
-                    <v-avatar :title="treeData.item.libelle">
+                    <v-avatar
+                      class="border-lightgray"
+                      :title="treeData.item.libelle"
+                    >
                       <v-img :src="treeData.item.getImagePath()"></v-img>
                     </v-avatar>
                   </template>
@@ -45,10 +48,9 @@
               <div class="name">
                 {{ treeData.hench.libelle }}<br />
                 <select
-                  class="select"
+                  class="select border-black"
                   :key="treeData.hench.id"
                   v-model="selectKey"
-                  style="border: 1px solid black"
                   @change="mixListUpdate"
                 >
                   <option

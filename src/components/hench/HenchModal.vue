@@ -42,7 +42,7 @@
                 min-height="350"
                 max-width="70%"
                 contain
-                style="margin: 0 auto; border:1px solid black"
+                style="margin: 0 auto;"
                 :src="data.imageUrl"
               >
               </v-img>
@@ -156,7 +156,6 @@ export default {
   },
   methods: {
     pause(bool) {
-      console.log("enter");
       this.$set(this, "isPaused", bool);
     }
   },

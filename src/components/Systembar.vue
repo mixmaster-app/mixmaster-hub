@@ -1,29 +1,29 @@
 <template>
-  <v-system-bar height="30" app class="syst-bar">
+  <v-system-bar height="30" app class="user-none">
     <v-img
       src="@/assets/logo.png"
       contain
       max-height="24px"
       max-width="24px"
+      class="drag"
     ></v-img>
-    Mixmaster <span class="version">({{ this.package.version }})</span>
-    <v-spacer class="drag"></v-spacer>
+    <span class="drag">
+      {{ this.package.fullName }}
+      <span class="version">({{ this.package.fullVersion }})</span>
+    </span>
+    <v-spacer class="drag syst-spacer"></v-spacer>
     <div
-      class="pa-2 green rounded-circle d-inline-block mr-1"
+      class="pa-2 green rounded-circle d-inline-block mr-1 no-drag"
       @click="minimize"
     ></div>
     <div
-      class="pa-2 orange rounded-circle d-inline-block mr-1"
+      class="pa-2 orange rounded-circle d-inline-block mr-1 no-drag"
       @click="maximize"
     ></div>
     <div
-      class="pa-2 red rounded-circle d-inline-block mr-1"
+      class="pa-2 red rounded-circle d-inline-block mr-1 no-drag"
       @click="close"
     ></div>
-
-    <!-- <v-icon>mdi-minus</v-icon>
-    <v-icon>mdi-checkbox-blank-outline</v-icon>
-    <v-icon @mouseup="close">mdi-close</v-icon> -->
   </v-system-bar>
 </template>
 

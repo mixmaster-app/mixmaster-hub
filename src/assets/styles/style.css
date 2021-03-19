@@ -11,7 +11,7 @@ a {
 }
 .scroll {
   padding: 0 !important;
-  overflow-y: scroll;
+  overflow-y: auto;
   display: block;
   position: fixed;
   top: 20px;
@@ -23,16 +23,20 @@ a {
 /* ::-webkit-scrollbar { width: 0; } */
 .version {
   font-weight: bold;
-  margin-left: 5px;
 }
-.syst-bar {
+.user-none {
   user-select: none;
 }
-.drag {
-  margin-left: 1%;
+.syst-spacer {
+  padding-left: 1%;
   margin-right: 1%;
-  -webkit-app-region: drag;
   height:80%;
+}
+.drag {
+  -webkit-app-region: drag;
+}
+.no-drag {
+  -webkit-app-region: no-drag;
 }
 .center-div {
   position: fixed;
@@ -56,4 +60,10 @@ a {
   -moze-appearance: menulist !important; /* override vuetify style */
   appearance: menulist !important; /* override vuetify style */
   margin-bottom: 2rem; /* demo purpose */
+}
+.border-black {
+  border: 1px solid black;
+}
+.border-lightgray {
+  border: 1px solid lightgray;
 }

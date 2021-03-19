@@ -1,6 +1,6 @@
 <template>
   <div class="home center-div">
-    Welcome on the MixJs Application !
+    Bienvenue sur l'application MixmasterDesktop
   </div>
 </template>
 

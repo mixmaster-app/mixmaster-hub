@@ -2,14 +2,26 @@
   <div class="main">
     <v-row no-gutters>
       <v-card
-        class="ma-3"
-        max-height="128"
+        class="ma-3 blue-grey lighten-5"
         v-for="(func, index) in functionnalityList"
         :key="index"
         :to="func.path"
         :title="func.name"
       >
-        <v-img :src="getFuncImg(func.imageName)" :alt="func.name"> </v-img>
+        <v-img
+          class="ma-2 rounded-lg"
+          style="border: 1px solid lightgray;"
+          height="128"
+          contain
+          :src="getFuncImg(func.imageName)"
+          :alt="func.name"
+        ></v-img>
+        <v-card-title
+          class="caption text-center user-none"
+          style="display:inherit !important"
+        >
+          {{ func.name }}
+        </v-card-title>
       </v-card>
     </v-row>
   </div>
