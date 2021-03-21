@@ -31,6 +31,7 @@ import {
 } from "@/api/hench/HenchAction.js";
 
 export default {
+  name: "Henchs",
   data() {
     return {
       henchList: [],

@@ -19,25 +19,18 @@ a {
   left: 56px;
   bottom: 0;
 }
+.link { color: #0071db }
 .red-txt { color: red !important; }
 /* ::-webkit-scrollbar { width: 0; } */
-.version {
-  font-weight: bold;
-}
-.user-none {
-  user-select: none;
-}
+.version { font-weight: bold; }
+.user-none { user-select: none; }
 .syst-spacer {
   padding-left: 1%;
   margin-right: 1%;
   height:80%;
 }
-.drag {
-  -webkit-app-region: drag;
-}
-.no-drag {
-  -webkit-app-region: no-drag;
-}
+.drag { -webkit-app-region: drag; }
+.no-drag { -webkit-app-region: no-drag; }
 .center-div {
   position: fixed;
   top: 50%;
@@ -48,9 +41,7 @@ a {
   margin: 0 auto;
   width: max-content;
 }
-.mixtreeview {
-  margin-top: 15px;
-}
+.mixtreeview { margin-top: 15px; }
 .select {
   width: inherit;
   border-radius: 3px;

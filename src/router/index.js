@@ -12,15 +12,10 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "",
+    path: "/",
     name: "Fonctionnalités",
     component: Functionnality
   },
-  // {
-  //   path: "/functionnality",
-  //   name: "Fonctionnalités",
-  //   component: Functionnality
-  // },
   {
     path: "/functionnality/mixlvlresult",
     name: "Mix level résultat",
