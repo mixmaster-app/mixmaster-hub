@@ -52,6 +52,11 @@ export default {
           linkText: "Henchs"
         },
         {
+          iconName: "mdi-calendar",
+          linksTo: "/calendar",
+          linkText: "Calendrier"
+        },
+        {
           iconName: "mdi-cog",
           linksTo: "/settings",
           linkText: "Paramètres"

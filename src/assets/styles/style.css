@@ -19,6 +19,9 @@ a {
   left: 56px;
   bottom: 0;
 }
+.no-overflow {
+  overflow: hidden;
+}
 .link { color: #0071db }
 .red-txt { color: red !important; }
 /* ::-webkit-scrollbar { width: 0; } */

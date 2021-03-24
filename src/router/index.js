@@ -7,6 +7,7 @@ import MixTreeView from "@/views/Functionnality/MixTreeView.vue";
 import Profile from "@/views/Profile.vue";
 import Henchs from "@/views/Henchs.vue";
 import Settings from "@/views/Settings.vue";
+import Calendar from "@/views/Calendar.vue";
 
 Vue.use(VueRouter);
 
@@ -25,6 +26,11 @@ const routes = [
     path: "/functionnality/mixtreeview",
     name: "Mix tree",
     component: MixTreeView
+  },
+  {
+    path: "/calendar",
+    name: "Calendrier",
+    component: Calendar
   },
   {
     path: "/profile",
