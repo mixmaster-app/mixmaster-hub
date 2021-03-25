@@ -9,8 +9,7 @@
           :title="index.description"
         >
           <v-img
-            class="ma-2 rounded-lg"
-            style="border: 1px solid lightgray;"
+            class="ma-2 rounded-lg border-lightgray"
             height="128"
             contain
             :src="getFuncImg(index.imageName)"

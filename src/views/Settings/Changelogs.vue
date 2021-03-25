@@ -5,6 +5,7 @@
         v-for="(release, indexRelease) in this.changelogsData.releases"
         :key="indexRelease"
       >
+        <br class="user-none" v-if="indexRelease != 0" />
         <h2>
           <span class="link">{{ release.version.raw }}</span> -
           {{ formatDate(release.date) }}
@@ -16,6 +17,7 @@
           )"
           :key="indexChange"
         >
+          <br class="user-none" v-if="indexChange != 0" />
           <h3>
             {{ capitalizeFirstLetter(change[0]) }}
           </h3>

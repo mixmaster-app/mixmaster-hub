@@ -1,7 +1,16 @@
 const ROUTE_LIST = [
   {
-    name: "Functionnality",
+    name: "Home",
     path: "/",
+    description: "Home page",
+    iconName: "mdi-home",
+    imageName: undefined,
+    doDspInSidebar: true,
+    doDspInFunctionnality: false
+  },
+  {
+    name: "Functionnality",
+    path: "/functionnality",
     description: "List of fonctionnality",
     iconName: "mdi-dots-grid",
     imageName: undefined,
@@ -14,7 +23,7 @@ const ROUTE_LIST = [
     description: "User profile",
     iconName: "mdi-account",
     imageName: undefined,
-    doDspInSidebar: true,
+    doDspInSidebar: false,
     doDspInFunctionnality: false
   },
   {
@@ -46,7 +55,7 @@ const ROUTE_LIST = [
   },
   {
     name: "Mix Level result",
-    path: "/Functionnality/mixlvlresult",
+    path: "/functionnality/mixlvlresult",
     description: "Calcul le level du résultat d'un mix",
     iconName: undefined,
     imageName: "01_mixlevelresult",
@@ -55,7 +64,7 @@ const ROUTE_LIST = [
   },
   {
     name: "Mix Tree view",
-    path: "/Functionnality/mixtreeview",
+    path: "/functionnality/mixtreeview",
     description: "Créer l'arbre de mix d'un hench",
     iconName: "mid-tree",
     imageName: "02_mixtreeview",

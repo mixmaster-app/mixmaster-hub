@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import Home from "@/views/Home.vue";
+import Home from "@/views/Home.vue";
 import Functionnality from "@/views/Functionnality.vue";
 import MixLevelResult from "@/views/Functionnality/MixLevelResult.vue";
 import MixTreeView from "@/views/Functionnality/MixTreeView.vue";
@@ -14,6 +14,11 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
+    name: "Home",
+    component: Home
+  },
+  {
+    path: "/functionnality",
     name: "Fonctionnalités",
     component: Functionnality
   },
