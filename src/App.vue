@@ -2,13 +2,8 @@
   <v-app id="inspire">
     <Systembar />
     <Sidebar :active="activeSidebar" v-model="activeSidebar" />
-    <!-- <v-app-bar app>
-      <v-app-bar-nav-icon @click.stop="activeSidebar = !activeSidebar">
-      </v-app-bar-nav-icon>
-      <span style="user-select:none">Mixmaster</span>
-    </v-app-bar> -->
 
-    <v-main class="scroll" style="margin-top: 9px;">
+    <v-main class="scroll" style="margin-top: 10px;">
       <router-view></router-view>
     </v-main>
   </v-app>

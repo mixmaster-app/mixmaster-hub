@@ -16,12 +16,12 @@
     <v-divider></v-divider>
 
     <v-list nav dense>
-      <div v-for="tab in tabs" :key="tab.linksTo">
-        <v-list-item link :to="tab.linksTo">
+      <div v-for="(tab, key) in filterIndex" :key="key">
+        <v-list-item link :to="tab.path" v-if="tab.doDspInSidebar">
           <v-list-item-icon>
             <v-icon>{{ tab.iconName }}</v-icon>
           </v-list-item-icon>
-          <v-list-item-title> {{ tab.linkText }} </v-list-item-title>
+          <v-list-item-title> {{ tab.name }} </v-list-item-title>
         </v-list-item>
       </div>
     </v-list>
@@ -29,40 +29,21 @@
 </template>
 
 <script>
+import ROUTE_LIST from "@/router/routes.js";
+
 export default {
   name: "Sidebar",
   props: ["active"],
   data() {
     return {
       isActive: this.active,
-      tabs: [
-        {
-          iconName: "mdi-dots-grid",
-          linksTo: "/",
-          linkText: "Fonctionnalités"
-        },
-        // {
-        //   iconName: "mdi-account",
-        //   linksTo: "/profile",
-        //   linkText: "Profile"
-        // },
-        {
-          iconName: "mdi-google-downasaur",
-          linksTo: "/henchs",
-          linkText: "Henchs"
-        },
-        {
-          iconName: "mdi-calendar",
-          linksTo: "/calendar",
-          linkText: "Calendrier"
-        },
-        {
-          iconName: "mdi-cog",
-          linksTo: "/settings",
-          linkText: "Paramètres"
-        }
-      ]
+      indexList: ROUTE_LIST
     };
+  },
+  computed: {
+    filterIndex() {
+      return this.indexList.filter(i => i.doDspInSidebar === true);
+    }
   },
   watch: {
     // Update isActive variable on parent update
