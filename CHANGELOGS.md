@@ -1,5 +1,9 @@
 # MixmasterDesktop Changelogs
 
+## [v0.2.0] - 2021-03-24
+### Added
+- Ajout d'un calendrier avec la liste des événements
+
 ## [v0.1.1] - 2021-03-18
 ### Added
 - Ajout d'un changelog parser (avec fichier de changelogs)
