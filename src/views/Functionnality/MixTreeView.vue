@@ -42,6 +42,7 @@ export default {
       ];
       const CHILDREN = this.checkChildNode(this.treeData, nodelevel, aChildren);
       this.$set(this.treeData, "children", CHILDREN);
+      this.saveTreeData(this.treeData);
     },
     checkChildNode(node, nodelevel, aChild) {
       if (node.nodelevel == nodelevel) {
@@ -62,6 +63,9 @@ export default {
         }
         return node.children;
       }
+    },
+    saveTreeData(n) {
+      localStorage.setItem("treeMixData", JSON.stringify(n));
     }
   },
   data() {
@@ -74,6 +78,19 @@ export default {
         children: []
       }
     };
+  },
+  mounted() {
+    if (localStorage.getItem("treeMixData")) {
+      try {
+        this.$set(
+          this,
+          "treeData",
+          JSON.parse(localStorage.getItem("treeMixData"))
+        );
+      } catch (e) {
+        localStorage.removeItem("treeMixData");
+      }
+    }
   }
 };
 </script>

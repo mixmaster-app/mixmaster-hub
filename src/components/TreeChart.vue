@@ -27,12 +27,12 @@
             >
               <div class="avat">
                 <v-badge color="#E7E7E7" avatar overlap v-if="treeData.item">
-                  <template v-slot:badge v-if="treeData.item.getImagePath()">
+                  <template v-slot:badge v-if="treeData.item.imagePath">
                     <v-avatar
                       class="border-lightgray"
                       :title="treeData.item.libelle"
                     >
-                      <v-img :src="treeData.item.getImagePath()"></v-img>
+                      <v-img :src="treeData.item.imagePath"></v-img>
                     </v-avatar>
                   </template>
                   <v-avatar size="70" color="white">
@@ -159,7 +159,7 @@ export default {
     },
     mixListUpdate(val) {
       const index = val.target.value;
-      if (index === false) return;
+      if (index === false || index == -1) return;
       this.emitChildMix({
         nodelevel: this.treeData.nodelevel,
         henchMix: this.treeData.hench.henchMixs[index]

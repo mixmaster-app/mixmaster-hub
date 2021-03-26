@@ -5,6 +5,7 @@ import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
 import installExtension /*, { VUEJS_DEVTOOLS }*/ from "electron-devtools-installer";
 const isDevelopment = process.env.NODE_ENV !== "production";
 import path from "path";
+import Store from "electron-store";
 
 let win = null;
 
@@ -58,6 +59,7 @@ ipcMain.on("maximize-app", () => {
     win.maximize();
   }
 });
+Store.initRenderer();
 // Quit when all windows are closed.
 app.on("window-all-closed", () => {
   // On macOS it is common for applications and their menu bar

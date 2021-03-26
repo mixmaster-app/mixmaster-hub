@@ -76,6 +76,20 @@ export default {
       }
     }
   },
-  watch: {}
+  mounted() {
+    if (localStorage.getItem("henchSearch")) {
+      try {
+        this.searchString = localStorage.getItem("henchSearch");
+        this.research();
+      } catch (e) {
+        localStorage.removeItem("henchSearch");
+      }
+    }
+  },
+  watch: {
+    searchString(n) {
+      localStorage.setItem("henchSearch", n);
+    }
+  }
 };
 </script>
