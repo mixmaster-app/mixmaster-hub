@@ -5,7 +5,35 @@
     max-width="95%"
     v-if="getFavorite().length"
   >
-    <v-slide-group v-model="data" class="pa-3 mt-4" center-active show-arrows>
+    <v-slide-group
+      v-model="data"
+      class="pa-3 mt-4"
+      center-active
+      show-arrows
+      mandatory
+    >
+      <v-slide-item v-slot="{ active, toggle }">
+        <v-card
+          :color="active ? 'primary' : 'grey lighten-1'"
+          class="ma-4"
+          height="80"
+          width="200"
+          @click="
+            toggle();
+            defaultTree();
+          "
+        >
+          <v-row class="fill-height mt-1" align="center" justify="center">
+            <v-avatar size="48" color="white">
+              <!-- <img :src="treeData.hench.imageUrl" /> -->
+              <img src="@/assets/functionnality/default.png" />
+            </v-avatar>
+            <v-card-title class="caption text-center user-none">
+              default
+            </v-card-title>
+          </v-row>
+        </v-card>
+      </v-slide-item>
       <v-slide-item
         v-for="(item, index) in getFavorite()"
         :key="index"
@@ -40,7 +68,8 @@
 export default {
   data() {
     return {
-      data: null
+      data: null,
+      key: 0
     };
   },
   methods: {
@@ -49,6 +78,9 @@ export default {
     },
     feedTree(treeMemory) {
       this.$emit("feedTree", treeMemory);
+    },
+    defaultTree() {
+      this.$emit("defaultValueTree", true);
     }
   }
 };

@@ -34,7 +34,7 @@
       "
       class="pa-3 justify-center"
     >
-      <table>
+      <table class="center" >
         <tr>
           <td
             :colspan="
@@ -82,7 +82,6 @@
                   <select
                     class="select border-black"
                     :key="treeData.hench.id"
-                    v-model="selectKey"
                     :disabled="this.getChild().length == 1"
                     @change="mixListUpdate"
                   >
@@ -138,7 +137,6 @@ export default {
   data() {
     return {
       treeData: this.json,
-      selectKey: -1,
       searchValue: "someText"
     };
   },
@@ -204,7 +202,6 @@ export default {
     },
     emitSearch(e) {
       this.$emit("emitSearch", e);
-      this.$set(this, "selectKey", -1);
       this.$forceUpdate();
     },
     emitChildMix(val) {
@@ -212,13 +209,9 @@ export default {
     },
     resetTree() {
       this.$emit("resetTree", true);
-      this.$set(this, "selectKey", -1);
-      this.$forceUpdate();
     },
     addFavorite() {
       this.$emit("addFavorite");
-      this.$set(this, "selectKey", -1);
-      this.$forceUpdate();
     },
     toggleExtend: function(treeData) {
       treeData.extend = !treeData.extend;

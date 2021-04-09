@@ -1,7 +1,7 @@
 <template>
-  <div class="mixtreeview justify-center" style="width: 100%">
+  <div class="mixtreeview justify-center" style="width: 100%" :key="resetId">
     <div class="mb-3">
-      <TreeFavorite @feedTree="loadFavorite" />
+      <TreeFavorite @feedTree="loadFavorite" @defaultValueTree="resetTree" />
     </div>
     <TreeChart
       :json="treeData"
@@ -41,22 +41,22 @@ export default {
         class: ["rootNode"],
         children: []
       },
-      favorite: false
+      favorite: false,
+      resetId: 0
     };
   },
   methods: {
     addFavorite() {
       this.$store.commit("addHenchMixFavorite", this.treeData);
       this.$set(this, "treeData", this.defaultTreeData);
-      this.$set(this, "favorite", false);
+      this.$set(this, "favorite", true);
     },
     getFavorite() {
       return this.$store.state.henchMixFavorite;
     },
     resetTree(value) {
       if (value) {
-        this.$set(this.treeData, "hench", undefined);
-        this.$set(this.treeData, "children", undefined);
+        this.$set(this, "treeData", this.defaultTreeData);
         this.$set(this, "favorite", false);
         this.saveTreeData();
       }
@@ -66,6 +66,7 @@ export default {
       this.$set(this, "favorite", true);
     },
     onEmitSearch(value) {
+      this.$set(this, "resetId", uuid.v1());
       this.$set(this.treeData, "hench", value);
       this.$set(this.treeData, "children", undefined);
       this.$set(this, "favorite", false);
