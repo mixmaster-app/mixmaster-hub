@@ -1,94 +1,129 @@
 <template>
-  <div>
-    <HenchSearchInput
-      @updateHench="emitSearch"
-      v-if="treeData.nodelevel == 1"
-    />
-    <table v-if="treeData.hench">
-      <tr>
-        <td
-          :colspan="
-            Array.isArray(treeData.children) ? treeData.children.length * 2 : 1
-          "
-          :class="{
-            parentLevel:
-              Array.isArray(treeData.children) && treeData.children.length,
-            extend:
-              Array.isArray(treeData.children) &&
-              treeData.children.length &&
-              treeData.extend
-          }"
-        >
-          <div :class="{ node: true, hasMate: treeData.mate }">
-            <div
-              class="person"
-              :class="Array.isArray(treeData.class) ? treeData.class : []"
-              @click="$emit('click-node', treeData)"
-            >
-              <div class="avat">
-                <v-badge color="#E7E7E7" avatar overlap v-if="treeData.item">
-                  <template v-slot:badge v-if="treeData.item.getImagePath()">
-                    <v-avatar
-                      class="border-lightgray"
-                      :title="treeData.item.libelle"
-                    >
-                      <v-img :src="treeData.item.getImagePath()"></v-img>
+  <v-card flat class="center" style="width:95%">
+    <v-card class="d-flex justify-center" flat v-if="treeData.nodelevel == 1">
+      <HenchSearchInput
+        style="max-width: fit-content; min-width: 220px;"
+        @updateHench="emitSearch"
+      />
+      <v-btn
+        icon
+        color="red"
+        outlined
+        class="ma-3"
+        :disabled="!treeData.hench"
+        @click="resetTree"
+      >
+        <v-icon>mdi-delete</v-icon>
+      </v-btn>
+      <v-btn
+        icon
+        color="orange"
+        outlined
+        class="ma-3"
+        :disabled="this.isFavorite == true || treeData.hench == undefined"
+        @click="addFavorite"
+      >
+        <v-icon>mdi-star</v-icon>
+      </v-btn>
+    </v-card>
+    <v-card
+      v-if="treeData.hench"
+      :flat="treeData.nodelevel != 1"
+      v-bind:class="
+        treeData.nodelevel == 1 ? 'overflow-scroll' : 'overflow-allow'
+      "
+      class="pa-3 justify-center"
+    >
+      <table class="center" >
+        <tr>
+          <td
+            :colspan="
+              Array.isArray(treeData.children)
+                ? treeData.children.length * 2
+                : 1
+            "
+            :class="{
+              parentLevel:
+                Array.isArray(treeData.children) && treeData.children.length,
+              extend:
+                Array.isArray(treeData.children) &&
+                treeData.children.length &&
+                treeData.extend
+            }"
+          >
+            <div :class="{ node: true, hasMate: treeData.mate }">
+              <div
+                class="person"
+                :class="Array.isArray(treeData.class) ? treeData.class : []"
+                @click="$emit('click-node', treeData)"
+              >
+                <div class="avat">
+                  <v-badge color="#E7E7E7" avatar overlap v-if="treeData.item">
+                    <template v-slot:badge v-if="treeData.item.imagePath">
+                      <v-avatar
+                        class="border-lightgray"
+                        :title="treeData.item.libelle"
+                      >
+                        <v-img :src="treeData.item.imagePath"></v-img>
+                      </v-avatar>
+                    </template>
+                    <v-avatar size="70" color="white">
+                      <!-- <img :src="treeData.hench.imageUrl" /> -->
+                      <img :src="treeData.hench.imageAvatar" />
                     </v-avatar>
-                  </template>
-                  <v-avatar size="70" color="white">
+                  </v-badge>
+                  <v-avatar size="70" color="white" v-else>
                     <!-- <img :src="treeData.hench.imageUrl" /> -->
                     <img :src="treeData.hench.imageAvatar" />
                   </v-avatar>
-                </v-badge>
-                <v-avatar size="70" color="white" v-else>
-                  <!-- <img :src="treeData.hench.imageUrl" /> -->
-                  <img :src="treeData.hench.imageAvatar" />
-                </v-avatar>
-              </div>
-              <div class="name">
-                {{ treeData.hench.libelle }}<br />
-                <select
-                  class="select border-black"
-                  :key="treeData.hench.id"
-                  v-model="selectKey"
-                  @change="mixListUpdate"
-                >
-                  <option
-                    v-for="(item, index) in this.getChild()"
-                    :value="item.value"
-                    :key="index"
-                    :selected="item.selected"
-                    >{{ item.libelle }}
-                  </option>
-                </select>
+                </div>
+                <div class="name">
+                  {{ treeData.hench.libelle }}<br />
+                  <select
+                    class="select border-black"
+                    :key="treeData.hench.id"
+                    :disabled="this.getChild().length == 1"
+                    @change="mixListUpdate"
+                  >
+                    <option
+                      v-for="(item, index) in this.getChild()"
+                      :value="item.value"
+                      :key="index"
+                      :selected="item.selected"
+                      >{{ item.libelle }}
+                    </option>
+                  </select>
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class="extend_handle"
-            v-if="Array.isArray(treeData.children) && treeData.children.length"
-            @click="toggleExtend(treeData)"
-          ></div>
-        </td>
-      </tr>
-      <tr
-        v-if="
-          Array.isArray(treeData.children) &&
-            treeData.children.length &&
-            treeData.extend
-        "
-      >
-        <td
-          v-for="(children, index) in treeData.children"
-          :key="index"
-          colspan="2"
-          class="childLevel"
+            <div
+              class="extend_handle"
+              v-if="
+                Array.isArray(treeData.children) && treeData.children.length
+              "
+              @click="toggleExtend(treeData)"
+            ></div>
+          </td>
+        </tr>
+        <tr
+          v-if="
+            Array.isArray(treeData.children) &&
+              treeData.children.length &&
+              treeData.extend
+          "
         >
-          <TreeChart :json="children" @emitChildMix="emitChildMix" />
-        </td>
-      </tr>
-    </table>
-  </div>
+          <td
+            v-for="(children, index) in treeData.children"
+            :key="index"
+            colspan="2"
+            class="childLevel"
+          >
+            <TreeChart :json="children" @emitChildMix="emitChildMix" />
+          </td>
+        </tr>
+      </table>
+    </v-card>
+  </v-card>
 </template>
 
 <script>
@@ -98,12 +133,11 @@ import HenchSearchInput from "@/components/hench/HenchSearchInput.vue";
 export default {
   name: "TreeChart",
   components: { HenchSearchInput },
-  props: ["json"],
+  props: ["json", "isFavorite"],
   data() {
     return {
       treeData: this.json,
-      selectKey: -1,
-      searchValue: ""
+      searchValue: "someText"
     };
   },
   watch: {
@@ -159,7 +193,7 @@ export default {
     },
     mixListUpdate(val) {
       const index = val.target.value;
-      if (index === false) return;
+      if (index === false || index == -1) return;
       this.emitChildMix({
         nodelevel: this.treeData.nodelevel,
         henchMix: this.treeData.hench.henchMixs[index]
@@ -168,11 +202,16 @@ export default {
     },
     emitSearch(e) {
       this.$emit("emitSearch", e);
-      this.$set(this, "selectKey", -1);
       this.$forceUpdate();
     },
     emitChildMix(val) {
       this.$emit("emitChildMix", val);
+    },
+    resetTree() {
+      this.$emit("resetTree", true);
+    },
+    addFavorite() {
+      this.$emit("addFavorite");
     },
     toggleExtend: function(treeData) {
       treeData.extend = !treeData.extend;

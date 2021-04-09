@@ -26,6 +26,7 @@ export default {
       package: pjson
     };
   },
-  components: {}
+  components: {},
+  methods: {}
 };
 </script>

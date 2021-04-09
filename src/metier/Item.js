@@ -7,6 +7,7 @@ class Item {
     this.id = id;
     this.libelle = libelle;
     this.description = description;
+    this.imagePath = this.getImagePath();
   }
 
   getImagePath() {
