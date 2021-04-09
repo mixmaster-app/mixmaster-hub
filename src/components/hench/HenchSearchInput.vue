@@ -21,7 +21,7 @@ export default {
     return {
       henchNameList: [],
       henchList: [],
-      searchText: "test",
+      searchText: "",
       search: null,
       isLoading: false
     };

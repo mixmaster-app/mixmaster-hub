@@ -21,8 +21,6 @@ export default {
     return { activeSidebar: true };
   },
   methods: {},
-  mounted() {
-    this.$router.push({ path: "/" });
-  }
+  mounted() {}
 };
 </script>

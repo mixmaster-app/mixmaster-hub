@@ -3,7 +3,6 @@
     <v-row no-gutters>
       <div v-for="(index, id) in filterIndex" :key="id">
         <v-card
-          v-if="index.doDspInFunctionnality"
           class="pa-1 ma-3 blue-grey lighten-5"
           :to="index.path"
           :title="index.description"

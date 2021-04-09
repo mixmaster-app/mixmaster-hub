@@ -22,6 +22,12 @@ a {
 .no-overflow {
   overflow: hidden;
 }
+.overflow-scroll {
+  overflow: auto;
+}
+.overflow-allow {
+  overflow: visible !important;
+}
 .link { color: #0071db }
 .red-txt { color: red !important; }
 /* ::-webkit-scrollbar { width: 0; } */
