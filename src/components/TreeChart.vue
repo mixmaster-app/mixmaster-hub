@@ -1,5 +1,5 @@
 <template>
-  <v-card flat class="center" style="width:95%">
+  <v-card flat class="center" style="width:95%; height: 100%">
     <v-card class="d-flex justify-center" flat v-if="treeData.nodelevel == 1">
       <HenchSearchInput
         style="max-width: fit-content; min-width: 220px;"
@@ -29,12 +29,11 @@
     <v-card
       v-if="treeData.hench"
       :flat="treeData.nodelevel != 1"
-      v-bind:class="
-        treeData.nodelevel == 1 ? 'overflow-scroll' : 'overflow-allow'
-      "
+      v-bind:class="treeData.nodelevel == 1 ? 'scroll' : 'overflow-allow'"
       class="pa-3 justify-center"
+      style="height: 100%"
     >
-      <table class="center">
+      <table class="center" style="height: 100%">
         <tr>
           <td
             :colspan="

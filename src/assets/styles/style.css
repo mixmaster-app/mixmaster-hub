@@ -21,7 +21,7 @@ a {
   bottom: 0;
 }
 .scroll {
-  overflow-y: auto;
+  overflow: auto;
   height: 100%;
 }
 .overflow-scroll {

@@ -34,7 +34,7 @@
 <script>
 import { parser } from "keep-a-changelog";
 const fs = require("fs");
-const CHANGELOGS_PATH = "@/../CHANGELOGS.md";
+const CHANGELOGS_PATH = "CHANGELOGS.md";
 
 export default {
   name: "Changelogs",
@@ -45,8 +45,11 @@ export default {
   },
   methods: {
     getChangelogData() {
-      const changelog = parser(fs.readFileSync(CHANGELOGS_PATH, "UTF-8"));
-      return changelog;
+      try {
+        return parser(fs.readFileSync(CHANGELOGS_PATH, "UTF-8"));
+      } catch (err) {
+        return [];
+      }
     },
     formatDate(d) {
       return `
