@@ -3,7 +3,7 @@
     <Systembar />
     <Sidebar :active="activeSidebar" v-model="activeSidebar" />
 
-    <v-main class="app" style="margin-top: 10px;">
+    <v-main class="app" style="margin-top: 10px; height: 100%;">
       <router-view></router-view>
     </v-main>
   </v-app>
@@ -24,3 +24,8 @@ export default {
   mounted() {}
 };
 </script>
+<style>
+.v-main__wrap {
+  height: 100%;
+}
+</style>

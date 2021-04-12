@@ -1,5 +1,5 @@
 <template>
-  <div class="mixtreeview justify-center">
+  <div class="mixtreeview justify-center scroll">
     <div class="mb-3">
       <TreeFavorite @feedTree="loadFavorite" @defaultValueTree="resetTree" />
     </div>
@@ -134,6 +134,6 @@ export default {
 
 <style scoped>
 .mixtreeview {
-  height: 100%;
+  height: 90%;
 }
 </style>

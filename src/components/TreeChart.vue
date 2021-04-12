@@ -29,11 +29,12 @@
     <v-card
       v-if="treeData.hench"
       :flat="treeData.nodelevel != 1"
-      v-bind:class="treeData.nodelevel == 1 ? 'scroll' : 'overflow-allow'"
+      v-bind:class="
+        treeData.nodelevel == 1 ? 'overflow-scroll' : 'overflow-allow'
+      "
       class="pa-3 justify-center"
-      style="height: 100%"
     >
-      <table class="center" style="height: 100%">
+      <table class="center">
         <tr>
           <td
             :colspan="
