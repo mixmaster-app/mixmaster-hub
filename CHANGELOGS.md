@@ -1,5 +1,10 @@
 # MixmasterDesktop Changelogs
 
+## [v0.2.2] - 2021-04-10
+### Added
+- Ajout de cache persistent
+- Ajout des favoris dans l'arbre de mix
+
 ## [v0.2.0] - 2021-03-24
 ### Added
 - Ajout d'un calendrier avec la liste des événements

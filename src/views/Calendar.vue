@@ -1,5 +1,5 @@
 <template>
-  <div style="height:100%; padding:5px" class="ma-2">
+  <div style="height: 100%; padding:5px;" class="ma-2">
     <v-sheet height="64">
       <v-toolbar flat>
         <v-btn outlined class="mr-4" color="grey darken-2" @click="setToday">
@@ -39,11 +39,12 @@
         </v-menu>
       </v-toolbar>
     </v-sheet>
-    <v-sheet height="90%" width="100%" class="no-overflow">
+    <v-sheet height="90%" width="100%">
       <v-calendar
         ref="calendar"
         v-model="focus"
         color="primary"
+        :weekdays="weekdays"
         :events="events"
         :event-color="getEventColor"
         :type="type"
@@ -65,24 +66,8 @@ export default {
       month: "Month",
       week: "Week"
     },
-    events: [],
-    colors: [
-      "blue",
-      "indigo",
-      "deep-purple",
-      "cyan",
-      "green",
-      "orange",
-      "grey darken-1"
-    ],
-    names: [
-      "Event XP",
-      "Event Drop",
-      "Animations",
-      "Quêtes temporaires",
-      "Guerre de magirita",
-      "Guerre de mekrita"
-    ]
+    weekdays: [1, 2, 3, 4, 5, 6, 0],
+    events: []
   }),
   mounted() {
     this.$refs.calendar.checkChange();

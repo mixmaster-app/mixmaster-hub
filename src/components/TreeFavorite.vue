@@ -20,7 +20,7 @@
           width="200"
           @click="
             toggle();
-            defaultTree();
+            defaultTree(true);
           "
         >
           <v-row class="fill-height mt-1" align="center" justify="center">
@@ -29,7 +29,7 @@
               <img src="@/assets/functionnality/default.png" />
             </v-avatar>
             <v-card-title class="caption text-center user-none">
-              default
+              Default
             </v-card-title>
           </v-row>
         </v-card>

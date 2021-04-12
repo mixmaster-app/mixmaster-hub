@@ -5,7 +5,7 @@
       class="ma-1"
       width="220"
       max-width="220"
-      v-on:click="activeModal = true"
+      @click="activeModal = true"
     >
       <template slot="progress">
         <v-progress-linear color="deep-purple" height="10" indeterminate>

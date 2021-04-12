@@ -8,16 +8,17 @@
         dark
         v-model="firstTab"
       >
-        <v-tab
-          disabled
-          @mouseenter="pause(!isPaused)"
-          @mouseleave="isPaused = false"
-        >
-          <marquee-text :repeat="2" :duration="5" :paused="isPaused">
-            <span class="ml-10">
+        <v-tab disabled>
+          <marquee-text
+            :repeat="2"
+            :duration="5"
+            v-if="data.libelle.length > 15"
+          >
+            <span class="ml-5">
               {{ data.libelle }}
             </span>
           </marquee-text>
+          <span v-else> {{ data.libelle }} </span>
         </v-tab>
         <v-tab :key="1" @click="model = 'tab-1'">Stats</v-tab>
         <v-tab :key="2" @click="model = 'tab-2'">Zones</v-tab>
@@ -148,7 +149,6 @@ export default {
   },
   data() {
     return {
-      isPaused: false,
       isActiveModal: this.activeModal,
       firstTab: 1,
       model: "tab-1"

@@ -34,7 +34,7 @@
       "
       class="pa-3 justify-center"
     >
-      <table class="center" >
+      <table class="center">
         <tr>
           <td
             :colspan="
@@ -57,7 +57,7 @@
                 :class="Array.isArray(treeData.class) ? treeData.class : []"
                 @click="$emit('click-node', treeData)"
               >
-                <div class="avat">
+                <div class="avat" @click="activeModal = true">
                   <v-badge color="#E7E7E7" avatar overlap v-if="treeData.item">
                     <template v-slot:badge v-if="treeData.item.imagePath">
                       <v-avatar
@@ -95,6 +95,11 @@
                   </select>
                 </div>
               </div>
+              <HenchModal
+                :activeModal="activeModal"
+                :data="transformHench(treeData.hench)"
+                v-model="activeModal"
+              />
             </div>
             <div
               class="extend_handle"
@@ -129,13 +134,16 @@
 <script>
 // https://github.com/tower1229/Vue-Tree-Chart/blob/master/src/components/TreeChart.vue
 import HenchSearchInput from "@/components/hench/HenchSearchInput.vue";
+import HenchModal from "@/components/hench/HenchModal.vue";
+import { Hench } from "@/metier/hench/Hench.js";
 
 export default {
   name: "TreeChart",
-  components: { HenchSearchInput },
+  components: { HenchSearchInput, HenchModal },
   props: ["json", "isFavorite"],
   data() {
     return {
+      activeModal: false,
       treeData: this.json,
       searchValue: "someText"
     };
@@ -190,6 +198,9 @@ export default {
         }
         return mixChild;
       }
+    },
+    transformHench(data) {
+      return new Hench(data);
     },
     mixListUpdate(val) {
       const index = val.target.value;
@@ -326,6 +337,9 @@ td {
   z-index: 2;
   width: 10em;
   /* overflow: hidden; */
+}
+.avat {
+  cursor: pointer;
 }
 .node .person .avat {
   display: block;

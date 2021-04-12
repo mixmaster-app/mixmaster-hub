@@ -89,7 +89,6 @@
 
 <script>
 import { Hench } from "@/metier/hench/Hench.js";
-// import { getOneHenchWhereLibelleContains } from "@/api/hench/HenchAction.js";
 import HenchSearchInput from "@/components/hench/HenchSearchInput.vue";
 
 export default {

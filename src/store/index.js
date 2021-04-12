@@ -8,12 +8,18 @@ const store = new Store();
 
 export default new Vuex.Store({
   state: {
-    henchMixFavorite: store.get("henchMixFavorite") || [],
+    henchMixFavorite: store.get("henchMixFavorite") || []
   },
   mutations: {
     addHenchMixFavorite(state, value) {
       state.henchMixFavorite.push(value);
       store.set("henchMixFavorite", state.henchMixFavorite);
+    },
+    resetStore(state, value) {
+      if (value) {
+        state.henchMixFavorite = [];
+        store.set("henchMixFavorite", state.henchMixFavorite);
+      }
     }
   },
   actions: {},

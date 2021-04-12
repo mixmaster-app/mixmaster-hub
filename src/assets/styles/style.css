@@ -5,13 +5,14 @@ a {
   color: inherit !important;
   text-decoration: none;
 }
+.full-height {
+  height: 100%
+}
 .main {
-  position: relative;
   padding: 10px;
 }
-.scroll {
+.app {
   padding: 0 !important;
-  overflow-y: auto;
   display: block;
   position: fixed;
   top: 20px;
@@ -19,14 +20,19 @@ a {
   left: 56px;
   bottom: 0;
 }
-.no-overflow {
-  overflow: hidden;
+.scroll {
+  overflow-y: auto;
+  height: 100%;
 }
 .overflow-scroll {
   overflow: auto;
 }
+.no-overflow {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
 .overflow-allow {
-  overflow: visible !important;
+  overflow: visible;
 }
 .link { color: #0071db }
 .red-txt { color: red !important; }
@@ -50,7 +56,6 @@ a {
   margin: 0 auto;
   width: max-content;
 }
-.mixtreeview { margin-top: 15px; }
 .select {
   width: inherit;
   border-radius: 3px;

@@ -3,7 +3,7 @@
     <Systembar />
     <Sidebar :active="activeSidebar" v-model="activeSidebar" />
 
-    <v-main class="scroll" style="margin-top: 10px;">
+    <v-main class="app" style="margin-top: 10px;">
       <router-view></router-view>
     </v-main>
   </v-app>

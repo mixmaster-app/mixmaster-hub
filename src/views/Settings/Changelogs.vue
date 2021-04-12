@@ -1,5 +1,6 @@
 <template>
-  <v-card>
+  <v-card class="scroll">
+    <v-card-title class="user-none mb-3">Changelogs 🚀</v-card-title>
     <v-card-text>
       <div
         v-for="(release, indexRelease) in this.changelogsData.releases"
@@ -60,7 +61,6 @@ export default {
       const list = [];
       for (const arr of data) {
         if (arr[1] && arr[1].length > 0) {
-          console.log(arr);
           list.push(arr);
         }
       }

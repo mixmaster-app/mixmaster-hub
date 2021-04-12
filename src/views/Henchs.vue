@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="main scroll">
     <v-toolbar dense floating style="top:10px;">
       <v-text-field
         hide-details
