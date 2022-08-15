@@ -1,5 +1,5 @@
 <template>
-  <v-card flat class="center" style="width:95%; height: 100%">
+  <v-card flat class="center" style="width:95%;">
     <v-card class="d-flex justify-center" flat v-if="treeData.nodelevel == 1">
       <HenchSearchInput
         style="max-width: fit-content; min-width: 220px;"
@@ -34,7 +34,15 @@
       "
       class="pa-3 justify-center"
     >
-      <table class="center">
+      <div v-if="treeData.nodelevel == 1">
+        <v-btn icon color="black" tile small outlined class="ma-2" @click="zoomIn">
+          <v-icon>mdi-plus</v-icon>
+        </v-btn>
+        <v-btn icon color="black" tile small outlined class="ma-2" @click="zoomOut">
+          <v-icon>mdi-minus</v-icon>
+        </v-btn>
+      </div>
+      <table class="center" :style="{'zoom': `${zoom}%`}">
         <tr>
           <td
             :colspan="
@@ -143,6 +151,7 @@ export default {
   props: ["json", "isFavorite"],
   data() {
     return {
+      zoom: 100,
       activeModal: false,
       treeData: this.json,
       searchValue: "someText"
@@ -169,6 +178,14 @@ export default {
     }
   },
   methods: {
+    zoomIn() {
+      this.$set(this, "zoom", this.zoom + 2);
+      console.log(this.zoom);
+    },
+    zoomOut() {
+      this.$set(this, "zoom", this.zoom - 2);
+      console.log(this.zoom);
+    },
     getChild() {
       const henchMixsList = this.treeData.hench.henchMixs;
       if (!henchMixsList || henchMixsList.length == 0) {
