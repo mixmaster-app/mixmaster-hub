@@ -29,7 +29,7 @@ const routes = [
     component: MixLevelResult
   },
   {
-    path: "/functionnality/mixtreeview",
+    path: "/mixtreeview",
     name: "Mix tree",
     component: MixTreeView
   },

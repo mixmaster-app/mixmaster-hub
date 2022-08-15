@@ -1,29 +1,20 @@
 <template>
   <v-system-bar height="30" app class="user-none">
-    <v-img
-      src="@/assets/logo.png"
-      contain
-      max-height="24px"
-      max-width="24px"
-      class="drag"
-    ></v-img>
+    <v-img src="@/assets/logo.png" contain max-height="24px" max-width="24px" class="drag"></v-img>
     <span class="drag">
       {{ this.package.fullName }}
       <span class="version">({{ this.package.fullVersion }})</span>
     </span>
     <v-spacer class="drag syst-spacer"></v-spacer>
-    <div
-      class="pa-2 green rounded-circle d-inline-block mr-1 no-drag"
-      @click="minimize"
-    ></div>
-    <div
-      class="pa-2 orange rounded-circle d-inline-block mr-1 no-drag"
-      @click="maximize"
-    ></div>
-    <div
-      class="pa-2 red rounded-circle d-inline-block mr-1 no-drag"
-      @click="close"
-    ></div>
+    <v-icon color="black" @click="minimize">
+      mdi-window-minimize
+    </v-icon>
+    <v-icon color="black" @click="maximize">
+      mdi-window-maximize
+    </v-icon>
+    <v-icon color="red" @click="close">
+      mdi-window-close
+    </v-icon>
   </v-system-bar>
 </template>
 

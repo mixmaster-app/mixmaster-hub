@@ -46,12 +46,11 @@
           width="200"
           @click="
             toggle();
-            feedTree(item);
+            feedTree(item, index);
           "
         >
           <v-row class="fill-height mt-1" align="center" justify="center">
             <v-avatar size="48" color="white" :title="item.hench.libelle">
-              <!-- <img :src="treeData.hench.imageUrl" /> -->
               <img :src="item.hench.imageAvatar" />
             </v-avatar>
             <v-card-title class="caption text-center user-none">
@@ -76,8 +75,8 @@ export default {
     getFavorite() {
       return this.$store.state.henchMixFavorite.filter(i => i.hench);
     },
-    feedTree(treeMemory) {
-      this.$emit("feedTree", treeMemory);
+    feedTree(treeMemory, index) {
+      this.$emit("feedTree", {value: treeMemory, key: index});
     },
     defaultTree() {
       this.$emit("defaultValueTree", true);

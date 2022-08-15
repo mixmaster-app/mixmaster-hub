@@ -1,7 +1,7 @@
 <template>
   <div class="mixtreeview justify-center scroll">
     <div class="mb-3">
-      <TreeFavorite @feedTree="loadFavorite" @defaultValueTree="resetTree" />
+      <TreeFavorite @feedTree="loadFavorite" @defaultValueTree="defaultValue" />
     </div>
     <TreeChart
       :json="treeData"
@@ -27,6 +27,7 @@ export default {
   },
   data() {
     return {
+      key: undefined,
       treeData: {
         hench: undefined,
         nodelevel: 1,
@@ -48,20 +49,30 @@ export default {
     addFavorite() {
       this.$store.commit("addHenchMixFavorite", this.treeData);
       let nData = this.defaultTreeData;
+      this.$set(this, "key", undefined);
       this.$set(this, "treeData", nData);
       this.$set(this, "favorite", true);
+      this.saveTreeData();
     },
     getFavorite() {
       return this.$store.state.henchMixFavorite;
     },
+    defaultValue() {
+      this.$set(this, "key", undefined);
+      this.$set(this, "treeData", this.defaultTreeData);
+      this.$set(this, "favorite", false);
+    },
     resetTree(value) {
       if (value) {
+        this.$store.commit("removeHenchFromFavorite", this.key);
+        this.$set(this, "key", undefined);
         this.$set(this, "treeData", this.defaultTreeData);
         this.$set(this, "favorite", false);
         this.saveTreeData();
       }
     },
-    loadFavorite(value) {
+    loadFavorite({value, key}) {
+      this.$set(this, "key", key);
       this.$set(this, "treeData", value);
       this.$set(this, "favorite", true);
     },
@@ -113,7 +124,10 @@ export default {
     },
     saveTreeData() {
       localStorage.setItem("treeMixData", JSON.stringify(this.treeData));
-      // this.$set(this, "favorite", false);
+      if(this.key && this.favorite) {
+        this.$store.commit("updateHenchFavorite", {key: this.key, data: this.treeData});
+        localStorage.removeItem("treeMixData");
+      }
     }
   },
   mounted() {
@@ -134,6 +148,7 @@ export default {
 
 <style scoped>
 .mixtreeview {
-  height: 90%;
+  height: 97%;
+  padding-bottom:50px;
 }
 </style>

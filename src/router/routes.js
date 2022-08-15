@@ -36,13 +36,22 @@ const ROUTE_LIST = [
     doDspInFunctionnality: true
   },
   {
+    name: "Mix Tree view",
+    path: "mixtreeview",
+    description: "Créer l'arbre de mix d'un hench",
+    iconName: "mdi-file-tree",
+    imageName: "02_mixtreeview",
+    doDspInSidebar: true,
+    doDspInFunctionnality: true
+  },
+  {
     name: "Calendar",
     path: "/calendar",
     description: "Calendar of events",
     iconName: "mdi-calendar",
     imageName: "04_calendar",
-    doDspInSidebar: true,
-    doDspInFunctionnality: true
+    doDspInSidebar: false,
+    doDspInFunctionnality: false
   },
   {
     name: "Settings",
@@ -62,15 +71,6 @@ const ROUTE_LIST = [
     doDspInSidebar: false,
     doDspInFunctionnality: true
   },
-  {
-    name: "Mix Tree view",
-    path: "/functionnality/mixtreeview",
-    description: "Créer l'arbre de mix d'un hench",
-    iconName: "mid-tree",
-    imageName: "02_mixtreeview",
-    doDspInSidebar: false,
-    doDspInFunctionnality: true
-  }
 ];
 
 export default ROUTE_LIST;
