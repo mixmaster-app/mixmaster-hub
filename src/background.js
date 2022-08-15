@@ -41,6 +41,8 @@ async function createWindow() {
     win.loadURL("app://./index.html");
   }
 
+  win.webContents.setZoomFactor(1.0);
+
   win.on("closed", () => {
     win = null;
   });
