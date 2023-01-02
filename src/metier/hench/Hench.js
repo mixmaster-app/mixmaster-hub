@@ -5,35 +5,35 @@ import HenchMix from "@/metier/hench/HenchMix.js";
 
 class Hench {
   id;
-  libelle;
+  name;
   type;
   stats;
-  attackType;
-  levelMinimum;
-  levelMaximum;
-  imageUrl;
+  atk_type;
+  minimum_level;
+  maximum_level;
+  img_url;
   imageAvatar;
-  dropable;
-  mixable;
+  is_dropable;
+  is_mixable;
   zones;
-  henchMixs;
-  henchEvolutions;
+  mixs;
+  evolutions;
 
   constructor(data) {
     this.id = data.id || 0;
-    this.libelle = data.libelle || "";
-    this.type = new Type(data.type.id, data.type.libelle) || undefined;
+    this.name = data.name || "";
+    this.type = new Type(data.type.id, data.type.name) || undefined;
     this.stats = new Stats(data.stats) || undefined;
-    this.attackType = data.attackType || 1; // Distance(2) ou Corps à corps(1)
-    this.levelMinimum = data.levelMinimum || 0;
-    this.levelMaximum = data.levelMaximum || 0;
-    this.imageUrl = data.imageUrl || "";
+    this.atk_type = data.atk_type || 1; // Distance(2) ou Corps à corps(1)
+    this.minimum_level = data.minimum_level || 0;
+    this.maximum_level = data.maximum_level || 0;
+    this.img_url = data.img_url || "";
     this.imageAvatar = this.getImageAvatar();
-    this.dropable = data.dropable == 1 || false;
-    this.mixable = data.mixable == 1 || false;
+    this.is_dropable = data.is_dropable == 1 || false;
+    this.is_mixable = data.is_mixable == 1 || false;
     this.zones = this.parseZones(data.zones) || [];
-    this.henchMixs = this.parseMixs(data.henchMixs) || [];
-    this.henchEvolutions = this.parseMixs(data.henchEvolutions) || [];
+    this.mix = this.parseMixs(data.mix) || [];
+    this.evolutions = this.parseMixs(data.evolutions) || [];
   }
 
   getImageTypePath() {
@@ -49,13 +49,13 @@ class Hench {
   }
 
   hasEvolutions() {
-    return this.henchEvolutions.length > 0;
+    return this.evolutions.length > 0;
   }
 
   getAllEvolutions() {
     const evolutionsLibelleList = [];
-    for (let i = 0; i < this.henchEvolutions.length; i++) {
-      const henchLibelle = this.henchEvolutions[i].henchResult.libelle;
+    for (let i = 0; i < this.evolutions.length; i++) {
+      const henchLibelle = this.evolutions[i].hench_result.name;
       if (evolutionsLibelleList.indexOf(henchLibelle) == -1) {
         evolutionsLibelleList.push(henchLibelle);
       }
@@ -79,7 +79,7 @@ class Hench {
 
   parseMixs(data) {
     const henchsMixsList = [];
-    const henchMixLength = data.length;
+    const henchMixLength = data?.length;
     for (let i = 0; i < henchMixLength; i++) {
       const item = data[i];
       henchsMixsList.push(new HenchMix(item));

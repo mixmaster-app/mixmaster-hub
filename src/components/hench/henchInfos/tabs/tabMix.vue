@@ -1,16 +1,16 @@
 <template>
   <v-card>
     <v-card-text>
-      <span v-if="data.henchMixs.length == 0">
+      <span v-if="data.mix.length == 0">
         No mixs found for this hench
       </span>
-      <ul id="mixs" v-if="data.henchMixs.length >= 1">
-        <li v-for="mix in data.henchMixs" :key="mix.id">
-          {{ mix.henchLeft.libelle }}
-          {{ mix.itemLeft.libelle ? `(${mix.itemLeft.libelle})` : "" }}
+      <ul id="mixs" v-if="data.mix.length >= 1">
+        <li v-for="mix in data.mix" :key="mix.id">
+          {{ mix.hench_left.name }}
+          {{ mix.item_left.name ? `(${mix.item_left.name})` : "" }}
           +
-          {{ mix.henchRight.libelle }}
-          {{ mix.itemRight.libelle ? `(${mix.itemRight.libelle})` : "" }}
+          {{ mix.hench_right.name }}
+          {{ mix.item_right.name ? `(${mix.item_right.name})` : "" }}
         </li>
       </ul>
     </v-card-text>

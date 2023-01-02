@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://51.15.253.45:3000/api";
+const API_BASE_URL = "http://127.0.0.1:3000/api";
 const API_DEFAULT_TIMEOUT = 3600;
 import axios from "axios";
 

@@ -1,6 +1,12 @@
 <template>
   <v-system-bar height="30" app class="user-none">
-    <v-img src="@/assets/logo.png" contain max-height="24px" max-width="24px" class="drag"></v-img>
+    <v-img
+      src="@/assets/logo.png"
+      contain
+      max-height="24px"
+      max-width="24px"
+      class="drag"
+    ></v-img>
     <span class="drag">
       {{ this.package.fullName }}
       <span class="version">({{ this.package.fullVersion }})</span>

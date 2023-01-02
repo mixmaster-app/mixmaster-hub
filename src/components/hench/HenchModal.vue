@@ -24,6 +24,7 @@ export default {
   methods: {},
   watch: {
     activeModal() {
+      console.log(this.data);
       this.isActiveModal = this.activeModal;
     },
     isActiveModal() {

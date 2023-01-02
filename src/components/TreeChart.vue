@@ -70,23 +70,21 @@
                     <template v-slot:badge v-if="treeData.item.imagePath">
                       <v-avatar
                         class="border-lightgray"
-                        :title="treeData.item.libelle"
+                        :title="treeData.item.name"
                       >
                         <v-img :src="treeData.item.imagePath"></v-img>
                       </v-avatar>
                     </template>
                     <v-avatar size="70" color="white">
-                      <!-- <img :src="treeData.hench.imageUrl" /> -->
                       <img :src="treeData.hench.imageAvatar" />
                     </v-avatar>
                   </v-badge>
                   <v-avatar size="70" color="white" v-else>
-                    <!-- <img :src="treeData.hench.imageUrl" /> -->
                     <img :src="treeData.hench.imageAvatar" />
                   </v-avatar>
                 </div>
                 <div class="name">
-                  {{ treeData.hench.libelle }}<br />
+                  {{ treeData.hench.name }} <br />
                   <select
                     class="select border-black"
                     :key="treeData.hench.id"
@@ -187,7 +185,7 @@ export default {
       console.log(this.zoom);
     },
     getChild() {
-      const henchMixsList = this.treeData.hench.henchMixs;
+      const henchMixsList = this.treeData.hench.mix;
       if (!henchMixsList || henchMixsList.length == 0) {
         let mixChild = [
           {
@@ -208,7 +206,7 @@ export default {
         for (const item of henchMixsList) {
           mixChild.push({
             selected: false,
-            libelle: `${item.henchLeft.libelle} + ${item.henchRight.libelle}`,
+            libelle: `${item.hench_left.name} + ${item.hench_right.name}`,
             value: i
           });
           i++;
@@ -224,7 +222,7 @@ export default {
       if (index === false || index == -1) return;
       this.emitChildMix({
         nodelevel: this.treeData.nodelevel,
-        henchMix: this.treeData.hench.henchMixs[index]
+        henchMix: this.treeData.hench.mix[index]
       });
       return;
     },

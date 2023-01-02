@@ -1,10 +1,10 @@
 class Zone {
   id;
-  libelle;
+  name;
 
   constructor(data) {
     this.id = data.id;
-    this.libelle = data.libelle;
+    this.name = data.name;
   }
 }
 

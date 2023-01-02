@@ -18,13 +18,13 @@
           width="40%"
           contain
           style="margin: 0 auto;"
-          :src="data.imageUrl"
+          :src="data.img_url"
         >
         </v-img>
       </v-card>
 
       <v-card-title>
-        <h5>{{ data.libelle }}</h5>
+        <h5>{{ data.name }}</h5>
         <v-img
           class="ma-2"
           max-height="16"
@@ -33,17 +33,17 @@
         >
         </v-img>
         <v-spacer></v-spacer>
-        <h6>lvl {{ data.levelMinimum }} - {{ data.levelMaximum }}</h6>
+        <h6>lvl {{ data.minimum_level }} - {{ data.maximum_level }}</h6>
       </v-card-title>
       <v-divider class="mx-4"></v-divider>
       <v-card-text>
-        <v-chip class="ma-2" :color="data.dropable ? 'green' : 'red'" dark>
+        <v-chip class="ma-2" :color="data.is_dropable ? 'green' : 'red'" dark>
           <v-avatar left>
             <v-icon>mdi-egg</v-icon>
           </v-avatar>
           Drop
         </v-chip>
-        <v-chip class="ma-2" :color="data.mixable ? 'green' : 'red'" dark>
+        <v-chip class="ma-2" :color="data.is_mixable ? 'green' : 'red'" dark>
           <v-avatar left>
             <v-icon>mdi-dna</v-icon>
           </v-avatar>
@@ -59,7 +59,6 @@
 <script>
 import { Hench } from "@/metier/hench/Hench.js";
 import HenchModal from "@/components/hench/HenchModal.vue";
-// import MarqueeText from "vue-marquee-text-component";
 
 export default {
   name: "HenchCard",

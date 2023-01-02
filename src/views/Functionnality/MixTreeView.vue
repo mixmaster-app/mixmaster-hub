@@ -80,14 +80,14 @@ export default {
       let mix = value.henchMix;
       const aChildren = [
         {
-          hench: await getOneById(mix.henchLeft.id),
-          item: mix.itemLeft,
+          hench: await getOneById(mix.hench_left.id),
+          item: mix.item_left,
           nodelevel: uuid.v1(),
           type: "select"
         },
         {
-          hench: await getOneById(mix.henchRight.id),
-          item: mix.itemRight,
+          hench: await getOneById(mix.hench_right.id),
+          item: mix.item_right,
           nodelevel: uuid.v1(),
           type: "select"
         }

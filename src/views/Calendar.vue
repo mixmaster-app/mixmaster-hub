@@ -94,7 +94,7 @@ export default {
           for (let i = 0; i < result.length; i++) {
             const item = result[i];
             events.push({
-              name: item.libelle,
+              name: item.name,
               start: new Date(
                 `${item.start}T${
                   item.start_heure ? item.start_heure : "00:00:00"

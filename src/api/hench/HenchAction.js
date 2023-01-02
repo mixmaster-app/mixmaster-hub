@@ -22,25 +22,7 @@ async function castResponseToHench(data) {
  */
 async function getAllHenchs() {
   return new Promise((resolve, reject) => {
-    get(`/henchs?size=80`)
-      .then(result => {
-        return resolve(castResponseToHenchArray(result.data));
-      })
-      .catch(error => {
-        return reject(error);
-      });
-  });
-}
-
-/**
- * Get a list of hench from a certain zone
- *
- * @param  id Id of the zone
- * @return    Array of every hench in the zone
- */
-async function getAllByZoneId(id) {
-  return new Promise((resolve, reject) => {
-    get(`/henchs/zone/${id}`)
+    get(`/henchs?limit=80`)
       .then(result => {
         return resolve(castResponseToHenchArray(result.data));
       })
@@ -52,7 +34,7 @@ async function getAllByZoneId(id) {
 
 async function getAllHenchWhereLibelleContains(search) {
   return new Promise((resolve, reject) => {
-    get(`/henchs/libelle/${search}`)
+    get(`/hench/search/${search}`)
       .then(result => {
         return resolve(castResponseToHenchArray(result.data));
       })
@@ -64,7 +46,7 @@ async function getAllHenchWhereLibelleContains(search) {
 
 async function getOneHenchWhereLibelleContains(search) {
   return new Promise((resolve, reject) => {
-    get(`/henchs/libelle/${search}?size=1`)
+    get(`/hench/search/${search}?limit=1`)
       .then(result => {
         return resolve(castResponseToHench(result.data[0]));
       })
@@ -76,7 +58,7 @@ async function getOneHenchWhereLibelleContains(search) {
 
 async function getAllMixsForHenchId(id) {
   return new Promise((resolve, reject) => {
-    get(`/henchs/id/${id}/mixs`)
+    get(`/hench/id/${id}/mixs`)
       .then(result => {
         return resolve(result.data);
       })
@@ -88,7 +70,7 @@ async function getAllMixsForHenchId(id) {
 
 async function getOneById(id) {
   return new Promise((resolve, reject) => {
-    get(`/henchs/id/${id}`)
+    get(`/hench/${id}`)
       .then(res => {
         return resolve(castResponseToHench(res.data));
       })
@@ -100,7 +82,6 @@ async function getOneById(id) {
 
 export {
   getAllHenchs,
-  getAllByZoneId,
   getAllHenchWhereLibelleContains,
   getOneHenchWhereLibelleContains,
   getAllMixsForHenchId,

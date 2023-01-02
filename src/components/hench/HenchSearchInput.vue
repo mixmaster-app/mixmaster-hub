@@ -5,7 +5,7 @@
     :loading="isLoading"
     :items="henchList"
     :search-input.sync="search"
-    item-text="libelle"
+    item-text="name"
     item-value="id"
     return-object
     hide-selected
@@ -36,7 +36,7 @@ export default {
           this.henchList = res;
           this.henchNameList = [];
           for (const hench of this.henchList) {
-            this.henchNameList.push(hench.libelle);
+            this.henchNameList.push(hench.name);
           }
         })
         .catch(() => {})

@@ -1,10 +1,10 @@
 class Type {
   id;
-  libelle;
+  name;
 
-  constructor(id, libelle) {
+  constructor(id, name) {
     this.id = id;
-    this.libelle = libelle;
+    this.name = name;
   }
 }
 

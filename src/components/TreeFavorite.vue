@@ -25,7 +25,6 @@
         >
           <v-row class="fill-height mt-1" align="center" justify="center">
             <v-avatar size="48" color="white">
-              <!-- <img :src="treeData.hench.imageUrl" /> -->
               <img src="@/assets/functionnality/default.png" />
             </v-avatar>
             <v-card-title class="caption text-center user-none">
@@ -50,11 +49,11 @@
           "
         >
           <v-row class="fill-height mt-1" align="center" justify="center">
-            <v-avatar size="48" color="white" :title="item.hench.libelle">
+            <v-avatar size="48" color="white" :title="item.hench.name">
               <img :src="item.hench.imageAvatar" />
             </v-avatar>
             <v-card-title class="caption text-center user-none">
-              {{ item.hench.libelle }}
+              {{ item.hench.name }}
             </v-card-title>
           </v-row>
         </v-card>

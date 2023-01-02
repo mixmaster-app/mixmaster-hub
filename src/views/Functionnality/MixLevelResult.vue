@@ -25,16 +25,16 @@
                 bordered
                 color="black"
                 :content="
-                  (henchLeft.levelMinimum || 0) +
+                  (hench_left.levelMinimum || 0) +
                     '-' +
-                    (henchLeft.levelMaximum || 0)
+                    (hench_left.levelMaximum || 0)
                 "
                 overlap
               >
                 <v-avatar size="48" color="grey">
                   <img
-                    v-if="henchLeft.imageAvatar"
-                    :src="henchLeft.imageAvatar"
+                    v-if="hench_left.imageAvatar"
+                    :src="hench_left.imageAvatar"
                   />
                 </v-avatar>
               </v-badge>
@@ -51,16 +51,16 @@
                 bordered
                 color="black"
                 :content="
-                  (henchRight.levelMinimum || 0) +
+                  (hench_right.levelMinimum || 0) +
                     '-' +
-                    (henchRight.levelMaximum || 0)
+                    (hench_right.levelMaximum || 0)
                 "
                 overlap
               >
                 <v-avatar size="48" color="grey">
                   <img
-                    v-if="henchRight.imageAvatar"
-                    :src="henchRight.imageAvatar"
+                    v-if="hench_right.imageAvatar"
+                    :src="hench_right.imageAvatar"
                   />
                 </v-avatar>
               </v-badge>
@@ -98,8 +98,8 @@ export default {
       searchLeft: "",
       searchRight: "",
       result: 0,
-      henchLeft: Hench,
-      henchRight: Hench,
+      hench_left: Hench,
+      hench_right: Hench,
       lvlLeftHench: 0,
       maxLvlLeftHench: 197,
       lvlRightHench: 0,
@@ -115,13 +115,13 @@ export default {
         Math.floor(mLevel) +
         Math.floor((Math.floor(pLevelLeft) + Math.floor(pLevelRight)) / 2 / 10);
     },
-    emitHenchR(henchRight) {
-      this.henchRight = henchRight;
-      this.maxLvlRightHench = henchRight.levelMaximum;
+    emitHenchR(hench_right) {
+      this.hench_right = hench_right;
+      this.maxLvlRightHench = hench_right.levelMaximum;
     },
-    emitHenchL(henchLeft) {
-      this.henchLeft = henchLeft;
-      this.maxLvlLeftHench = henchLeft.levelMaximum;
+    emitHenchL(hench_left) {
+      this.hench_left = hench_left;
+      this.maxLvlLeftHench = hench_left.levelMaximum;
     }
   }
 };

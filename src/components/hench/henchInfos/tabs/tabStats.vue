@@ -6,8 +6,8 @@
           <tr>
             <td>Level</td>
             <td>
-              {{ data.levelMinimum }} - {{ data.levelMaximum }}
-              <b>(Master {{ this.getMaster(data.levelMinimum) }})</b>
+              {{ data.minimum_level }} - {{ data.maximum_level }}
+              <b>(Master {{ this.getMaster(data.minimum_level) }})</b>
             </td>
           </tr>
           <tr v-for="(stat, prop) in data.stats" :key="prop">

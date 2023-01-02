@@ -2,12 +2,12 @@
   <v-card min-height="550px">
     <v-tabs fixed-tabs dark v-model="firstTab">
       <v-tab disabled>
-        <marquee-text :repeat="2" :duration="5" v-if="data.libelle.length > 15">
+        <marquee-text :repeat="2" :duration="5" v-if="data.name.length > 15">
           <span class="ml-5">
-            {{ data.libelle }}
+            {{ data.name }}
           </span>
         </marquee-text>
-        <span v-else> {{ data.libelle }} </span>
+        <span v-else> {{ data.name }} </span>
       </v-tab>
       <v-tab v-for="tab in tabs" :key="tab.id">{{ tab.name }}</v-tab>
     </v-tabs>
@@ -30,7 +30,7 @@
               max-width="70%"
               contain
               style="margin: 0 auto;"
-              :src="data.imageUrl"
+              :src="data.img_url"
             >
             </v-img>
           </v-card>

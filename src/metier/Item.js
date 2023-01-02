@@ -2,10 +2,11 @@ class Item {
   id;
   libelle;
   description;
+  imagePath;
 
-  constructor(id, libelle, description = "") {
-    this.id = id;
-    this.libelle = libelle;
+  constructor(id, name, description = "") {
+    this.id = id || 0;
+    this.name = name || "";
     this.description = description;
     this.imagePath = this.getImagePath();
   }

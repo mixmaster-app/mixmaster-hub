@@ -8,7 +8,7 @@
       class="full-height"
     >
       <v-tab v-for="(item, index) in items" :key="index" style="width: 160px;"
-        >{{ item.libelle }}
+        >{{ item.name }}
       </v-tab>
       <v-tab-item
         v-for="(item, index) in items"
