@@ -10,7 +10,10 @@ function get(url, timeout = API_DEFAULT_TIMEOUT) {
   return axios({
     method: "get",
     url: createUrl(url),
-    timeout: timeout
+    timeout: timeout,
+    headers: {
+      authorization: localStorage.getItem("user_identity")
+    }
   });
 }
 

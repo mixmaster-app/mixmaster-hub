@@ -205,7 +205,7 @@ export default {
       zoom: 100,
       activeModal: false,
       treeData: this.json,
-      searchValue: ""
+      searchValue: "_"
     };
   },
   watch: {

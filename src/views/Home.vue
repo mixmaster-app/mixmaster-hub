@@ -18,6 +18,7 @@
 
 <script>
 import pjson from "@/../package.json";
+import { machineIdSync } from "node-machine-id";
 
 export default {
   name: "Home",
@@ -27,6 +28,11 @@ export default {
     };
   },
   components: {},
-  methods: {}
+  methods: {},
+  mounted() {
+    if (!localStorage.getItem("user_identity")) {
+      localStorage.setItem("user_identity", machineIdSync({ original: true }));
+    }
+  }
 };
 </script>
