@@ -75,3 +75,11 @@ a {
 .no-box-shadow {
   box-shadow: none !important;
 }
+._1-bg { background-color: #ffdbdb !important; }
+._2-bg { background-color: #c0c0c0 !important; }
+._3-bg { background-color: #ebb96b !important; }
+._4-bg { background-color: #e7edff !important; }
+._5-bg { background-color: #aac7b1 !important; }
+._6-bg { background-color: #defde0 !important; }
+._7-bg { background-color: #fceed0 !important; }
+._8-bg { background-color: #ebebeb !important; }

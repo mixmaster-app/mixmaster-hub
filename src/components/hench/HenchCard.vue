@@ -7,7 +7,11 @@
       max-width="220"
       @click="activeModal = true"
     >
-      <v-card elevation="0" tile :class="['_' + data.type.id + '-bg', '']">
+      <v-card
+        elevation="0"
+        tile
+        :class="['_' + data.type.id + '-bg', 'border--bottom-gray']"
+      >
         <v-img
           height="150"
           min-height="150"
@@ -65,36 +69,7 @@ export default {
 .v-card__title {
   padding: 4px 4px 12px 4px;
 }
-
-._1-bg {
-  background: #f9dfe0;
-}
-
-._2-bg {
-  background: #a4a4a4;
-}
-
-._3-bg {
-  background: #ebb96b;
-}
-
-._4-bg {
-  background: #e7edff;
-}
-
-._5-bg {
-  background: #aac7b1;
-}
-
-._6-bg {
-  background: #defde0;
-}
-
-._7-bg {
-  background: #fff4da;
-}
-
-._8-bg {
-  background: #ebebeb;
+.border--bottom-gray {
+  border-bottom: 2px solid #838383;
 }
 </style>

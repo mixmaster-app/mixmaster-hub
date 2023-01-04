@@ -4,6 +4,7 @@ import Zone from "@/metier/hench/Zone.js";
 import HenchMix from "@/metier/hench/HenchMix.js";
 
 class Hench {
+  note;
   id;
   name;
   type;
@@ -21,6 +22,7 @@ class Hench {
   evolutions;
 
   constructor(data) {
+    this.note = data.note || "";
     this.id = data.id || 0;
     this.name = data.name || "";
     this.type = new Type(data.type.id, data.type.name) || undefined;

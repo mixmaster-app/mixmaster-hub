@@ -18,7 +18,7 @@
         <v-col cols="12" sm="11" style="background: white; border-radius: 5px">
           <v-row>
             <v-col cols="12" sm="5">
-              <v-card :elevation="4" style="background-color:lightgray">
+              <v-card :elevation="4" :class="['_' + data.type.id + '-bg']">
                 <div class="pa-2 mt-2 ml-2" :title="data.type.libelle">
                   <v-img
                     max-height="24"
@@ -64,10 +64,10 @@
 
 <script>
 import MarqueeText from "vue-marquee-text-component";
-import TabEvolutions from "@/components/hench/henchInfos/tabs/TabEvolutions.vue";
-import TabMix from "@/components/hench/henchInfos/tabs/TabMix.vue";
-import TabZones from "@/components/hench/henchInfos/tabs/TabZones.vue";
-import TabStats from "@/components/hench/henchInfos/tabs/TabStats.vue";
+import TabEvolutions from "@/components/hench/henchInfos/tab/TabEvolutions.vue";
+import TabMix from "@/components/hench/henchInfos/tab/TabMix.vue";
+import TabZones from "@/components/hench/henchInfos/tab/TabZones.vue";
+import TabStats from "@/components/hench/henchInfos/tab/TabStats.vue";
 
 export default {
   name: "HenchInfos",

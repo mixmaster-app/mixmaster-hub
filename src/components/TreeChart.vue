@@ -81,23 +81,60 @@
                 :class="Array.isArray(treeData.class) ? treeData.class : []"
                 @click="$emit('click-node', treeData)"
               >
-                <div class="avat" @click="activeModal = true">
-                  <v-badge color="#E7E7E7" avatar overlap v-if="treeData.item">
+                <div class="avat">
+                  <v-badge
+                    color="border-lightgray"
+                    avatar
+                    overlap
+                    v-if="treeData.item"
+                  >
                     <template v-slot:badge v-if="treeData.item.imagePath">
                       <v-avatar
+                        style="background-color: #E7E7E7"
                         class="border-lightgray"
                         :title="treeData.item.name"
                       >
-                        <v-img :src="treeData.item.imagePath"></v-img>
+                        <v-img :src="treeData.item.imagePath" />
+                      </v-avatar>
+                      <v-avatar
+                        style="width: 32px; max-width: 32px !important;"
+                      >
+                        <v-text-field
+                          v-model="treeData.hench.note"
+                          dense
+                          style="font-size: 12px; margin-left: 4px; margin-top: 16px; font-weight:bold"
+                        />
                       </v-avatar>
                     </template>
-                    <v-avatar size="70" color="white">
+                    <v-avatar
+                      size="70"
+                      color="white"
+                      @click="activeModal = true"
+                    >
                       <img :src="treeData.hench.imageAvatar" />
                     </v-avatar>
                   </v-badge>
-                  <v-avatar size="70" color="white" v-else>
-                    <img :src="treeData.hench.imageAvatar" />
-                  </v-avatar>
+
+                  <v-badge color="border-lightgray" avatar overlap v-else>
+                    <template v-slot:badge>
+                      <v-avatar
+                        style="width: 32px; max-width: 32px !important;"
+                      >
+                        <v-text-field
+                          v-model="treeData.hench.note"
+                          dense
+                          style="font-size: 12px; margin-left: 4px; margin-top: 16px; font-weight:bold"
+                        />
+                      </v-avatar>
+                    </template>
+                    <v-avatar
+                      size="70"
+                      color="white"
+                      @click="activeModal = true"
+                    >
+                      <img :src="treeData.hench.imageAvatar" />
+                    </v-avatar>
+                  </v-badge>
                 </div>
                 <div class="name">
                   {{ treeData.hench.name }} <br />
@@ -168,7 +205,7 @@ export default {
       zoom: 100,
       activeModal: false,
       treeData: this.json,
-      searchValue: "someText"
+      searchValue: ""
     };
   },
   watch: {
@@ -193,12 +230,10 @@ export default {
   },
   methods: {
     zoomIn() {
-      this.$set(this, "zoom", this.zoom + 2);
-      console.log(this.zoom);
+      this.$set(this, "zoom", this.zoom + 4);
     },
     zoomOut() {
-      this.$set(this, "zoom", this.zoom - 2);
-      console.log(this.zoom);
+      this.$set(this, "zoom", this.zoom - 4);
     },
     getChild() {
       const henchMixsList = this.treeData.hench.mix;
@@ -388,8 +423,9 @@ td {
 }
 .node .person .name {
   user-select: none;
-  /* height: 2em; */
+  height: 2em;
   line-height: 2em;
+  white-space: nowrap;
   /* overflow: hidden; */
   width: 100%;
 }
