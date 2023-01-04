@@ -35,14 +35,30 @@
       class="pa-3 justify-center"
     >
       <div v-if="treeData.nodelevel == 1">
-        <v-btn icon color="black" tile small outlined class="ma-2" @click="zoomIn">
+        <v-btn
+          icon
+          color="black"
+          tile
+          small
+          outlined
+          class="ma-2"
+          @click="zoomIn"
+        >
           <v-icon>mdi-plus</v-icon>
         </v-btn>
-        <v-btn icon color="black" tile small outlined class="ma-2" @click="zoomOut">
+        <v-btn
+          icon
+          color="black"
+          tile
+          small
+          outlined
+          class="ma-2"
+          @click="zoomOut"
+        >
           <v-icon>mdi-minus</v-icon>
         </v-btn>
       </div>
-      <table class="center" :style="{'zoom': `${zoom}%`}">
+      <table class="center" :style="{ zoom: `${zoom}%` }">
         <tr>
           <td
             :colspan="

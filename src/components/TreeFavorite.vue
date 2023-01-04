@@ -75,7 +75,7 @@ export default {
       return this.$store.state.henchMixFavorite.filter(i => i.hench);
     },
     feedTree(treeMemory, index) {
-      this.$emit("feedTree", {value: treeMemory, key: index});
+      this.$emit("feedTree", { value: treeMemory, key: index });
     },
     defaultTree() {
       this.$emit("defaultValueTree", true);

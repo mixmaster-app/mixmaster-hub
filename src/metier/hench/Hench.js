@@ -15,6 +15,7 @@ class Hench {
   imageAvatar;
   is_dropable;
   is_mixable;
+  is_questable;
   zones;
   mixs;
   evolutions;
@@ -31,6 +32,7 @@ class Hench {
     this.imageAvatar = this.getImageAvatar();
     this.is_dropable = data.is_dropable == 1 || false;
     this.is_mixable = data.is_mixable == 1 || false;
+    this.is_questable = data.is_questable == 1 || false;
     this.zones = this.parseZones(data.zones) || [];
     this.mix = this.parseMixs(data.mix) || [];
     this.evolutions = this.parseMixs(data.evolutions) || [];
@@ -50,6 +52,19 @@ class Hench {
 
   hasEvolutions() {
     return this.evolutions.length > 0;
+  }
+
+  getEvolutions() {
+    let evolutionList = [];
+    let checkLabelExist = [];
+    this.evolutions.forEach(item => {
+      const henchLibelle = item.hench_result.name;
+      if (checkLabelExist.indexOf(henchLibelle) == -1) {
+        checkLabelExist.push(henchLibelle);
+        evolutionList.push(item);
+      }
+    });
+    return evolutionList;
   }
 
   getAllEvolutions() {

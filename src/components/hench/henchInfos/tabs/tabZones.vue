@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card class="no-box-shadow">
     <v-card-text>
       <ul
         id="zones"
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: "tabZones",
+  name: "TabZones",
   props: {
     data: Object
   }

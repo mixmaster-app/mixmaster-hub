@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="isActiveModal" width="80%">
+  <v-dialog content-class="no-shadow" v-model="isActiveModal" width="85%">
     <HenchInfos :data="this.data" />
   </v-dialog>
 </template>
@@ -33,3 +33,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.no-shadow {
+  box-shadow: none !important;
+}
+</style>

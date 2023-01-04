@@ -37,7 +37,7 @@ const ROUTE_LIST = [
   },
   {
     name: "Mix Tree view",
-    path: "mixtreeview",
+    path: "/mixtreeview",
     description: "Créer l'arbre de mix d'un hench",
     iconName: "mdi-file-tree",
     imageName: "02_mixtreeview",
@@ -64,13 +64,13 @@ const ROUTE_LIST = [
   },
   {
     name: "Mix Level result",
-    path: "/functionnality/mixlvlresult",
+    path: "/mixlvlresult",
     description: "Calcul le level du résultat d'un mix",
     iconName: undefined,
     imageName: "01_mixlevelresult",
     doDspInSidebar: false,
     doDspInFunctionnality: true
-  },
+  }
 ];
 
 export default ROUTE_LIST;

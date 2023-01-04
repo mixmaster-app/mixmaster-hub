@@ -72,3 +72,6 @@ a {
 .border-lightgray {
   border: 1px solid lightgray;
 }
+.no-box-shadow {
+  box-shadow: none !important;
+}

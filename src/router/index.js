@@ -24,7 +24,7 @@ const routes = [
     component: Functionnality
   },
   {
-    path: "/functionnality/mixlvlresult",
+    path: "/mixlvlresult",
     name: "Mix level résultat",
     component: MixLevelResult
   },

@@ -15,7 +15,7 @@ export default new Vuex.Store({
       state.henchMixFavorite.push(value);
       store.set("henchMixFavorite", state.henchMixFavorite);
     },
-    updateHenchFavorite(state, {key: key, data: data}) {
+    updateHenchFavorite(state, { key: key, data: data }) {
       state.henchMixFavorite[key] = data;
       store.set("henchMixFavorite", state.henchMixFavorite);
     },

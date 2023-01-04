@@ -1,8 +1,8 @@
 {
   "name": "mixmaster-dekstop",
   "fullName": "MixmasterDesktop",
-  "version": "0.2.3",
-  "fullVersion": "0.2.3 - ALPHA",
+  "version": "1.1.0",
+  "fullVersion": "1.1.0",
   "description": "Mixmaster Desktop application",
   "author": {
     "name": "Kiio__",
@@ -17,6 +17,8 @@
   },
   "main": "background.js",
   "dependencies": {
+    "@fontsource/sora": "^4.5.10",
+    "@vue/runtime-dom": "^3.2.45",
     "axios": "^0.21.4",
     "core-js": "^3.6.5",
     "electron-store": "^7.0.2",

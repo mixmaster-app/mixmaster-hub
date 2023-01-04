@@ -3,8 +3,14 @@
     <div class="mb-3">
       <TreeFavorite @feedTree="loadFavorite" @defaultValueTree="defaultValue" />
     </div>
-    <TreeChart :json="treeData" :isFavorite="favorite" @emitSearch="onEmitSearch" @emitChildMix="onEmitChildMix"
-      @resetTree="resetTree" @addFavorite="addFavorite" />
+    <TreeChart
+      :json="treeData"
+      :isFavorite="favorite"
+      @emitSearch="onEmitSearch"
+      @emitChildMix="onEmitChildMix"
+      @resetTree="resetTree"
+      @addFavorite="addFavorite"
+    />
   </div>
 </template>
 
@@ -119,7 +125,10 @@ export default {
     saveTreeData() {
       localStorage.setItem("treeMixData", JSON.stringify(this.treeData));
       if (this.key && this.favorite) {
-        this.$store.commit("updateHenchFavorite", { key: this.key, data: this.treeData });
+        this.$store.commit("updateHenchFavorite", {
+          key: this.key,
+          data: this.treeData
+        });
         localStorage.removeItem("treeMixData");
       }
     }

@@ -7,50 +7,29 @@
       max-width="220"
       @click="activeModal = true"
     >
-      <template slot="progress">
-        <v-progress-linear color="deep-purple" height="10" indeterminate>
-        </v-progress-linear>
-      </template>
-      <v-card :elevation="4">
+      <v-card elevation="0" tile :class="['_' + data.type.id + '-bg', '']">
         <v-img
           height="150"
           min-height="150"
-          width="40%"
+          width="50%"
           contain
           style="margin: 0 auto;"
           :src="data.img_url"
-        >
-        </v-img>
+        ></v-img>
       </v-card>
 
-      <v-card-title>
-        <h5>{{ data.name }}</h5>
+      <v-card-title class="justify-center">
         <v-img
           class="ma-2"
           max-height="16"
           max-width="16"
           :src="data.getImageTypePath()"
-        >
-        </v-img>
-        <v-spacer></v-spacer>
-        <h6>lvl {{ data.minimum_level }} - {{ data.maximum_level }}</h6>
+        />
+        <h5>{{ data.name }}</h5>
       </v-card-title>
-      <v-divider class="mx-4"></v-divider>
-      <v-card-text>
-        <v-chip class="ma-2" :color="data.is_dropable ? 'green' : 'red'" dark>
-          <v-avatar left>
-            <v-icon>mdi-egg</v-icon>
-          </v-avatar>
-          Drop
-        </v-chip>
-        <v-chip class="ma-2" :color="data.is_mixable ? 'green' : 'red'" dark>
-          <v-avatar left>
-            <v-icon>mdi-dna</v-icon>
-          </v-avatar>
-          Mix
-        </v-chip>
-        <!-- <v-chip :color="grey" dark>Quest</v-chip> -->
-      </v-card-text>
+      <v-card-subtitle class="text-center">
+        <h6>Lv. {{ data.minimum_level }} - {{ data.maximum_level }}</h6>
+      </v-card-subtitle>
     </v-card>
     <HenchModal :activeModal="activeModal" :data="data" v-model="activeModal" />
   </div>
@@ -81,3 +60,41 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.v-card__title {
+  padding: 4px 4px 12px 4px;
+}
+
+._1-bg {
+  background: #f9dfe0;
+}
+
+._2-bg {
+  background: #a4a4a4;
+}
+
+._3-bg {
+  background: #ebb96b;
+}
+
+._4-bg {
+  background: #e7edff;
+}
+
+._5-bg {
+  background: #aac7b1;
+}
+
+._6-bg {
+  background: #defde0;
+}
+
+._7-bg {
+  background: #fff4da;
+}
+
+._8-bg {
+  background: #ebebeb;
+}
+</style>

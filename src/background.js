@@ -17,10 +17,10 @@ protocol.registerSchemesAsPrivileged([
 async function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({
-    minWidth: 640,
-    minHeight: 360,
-    width: 1280,
-    height: 720,
+    minWidth: 1024,
+    minHeight: 650,
+    width: 1500,
+    height: 850,
     frame: false,
     autoHideMenuBar: true,
     icon: path.join(__dirname, "icon.png"),

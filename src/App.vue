@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire">
+  <v-app class="app-main">
     <Systembar />
     <Sidebar :active="activeSidebar" v-model="activeSidebar" />
 
@@ -12,6 +12,7 @@
 <script>
 import Systembar from "@/components/Systembar.vue";
 import Sidebar from "@/components/Sidebar.vue";
+import "@fontsource/sora";
 require("@/assets/styles/style.css");
 
 export default {
@@ -24,8 +25,12 @@ export default {
   mounted() {}
 };
 </script>
+
 <style>
+.app-main {
+  font-family: "Sora";
+}
 .v-main__wrap {
-  height: 100%;
+  height: calc(100vh - 30px);
 }
 </style>
