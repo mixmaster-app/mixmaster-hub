@@ -4,7 +4,7 @@ import Home from "@/views/Home.vue";
 import Functionnality from "@/views/Functionnality.vue";
 import MixLevelResult from "@/views/Functionnality/MixLevelResult.vue";
 import MixTreeView from "@/views/Functionnality/MixTreeView.vue";
-import Profile from "@/views/Profile.vue";
+import Map from "@/views/Map.vue";
 import Henchs from "@/views/Henchs.vue";
 import Settings from "@/views/Settings.vue";
 import Calendar from "@/views/Calendar.vue";
@@ -39,9 +39,9 @@ const routes = [
     component: Calendar
   },
   {
-    path: "/profile",
-    name: "Profile",
-    component: Profile
+    path: "/map",
+    name: "Map",
+    component: Map
   },
   {
     path: "/henchs",

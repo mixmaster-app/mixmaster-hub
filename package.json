@@ -1,12 +1,12 @@
 {
-  "name": "mixmaster-dekstop",
-  "fullName": "MixmasterDesktop",
+  "name": "mixmaster-hub",
+  "fullName": "MixmasterHub",
   "version": "1.1.0",
   "fullVersion": "1.1.0",
-  "description": "Mixmaster Desktop application",
+  "description": "Mixmaster Hub",
   "author": {
     "name": "Kiio__",
-    "url": "https://gitlab.com/Kiio__"
+    "url": "https://gitea.com/Kiio__"
   },
   "private": true,
   "scripts": {
@@ -23,6 +23,7 @@
     "core-js": "^3.6.5",
     "electron-store": "^7.0.2",
     "keep-a-changelog": "^0.10.4",
+    "leaflet": "^1.9.3",
     "node-machine-id": "^1.1.12",
     "register-service-worker": "^1.7.1",
     "roboto-fontface": "*",
@@ -31,6 +32,7 @@
     "vue-router": "^3.2.0",
     "vue-tree-chart": "^1.2.9",
     "vue-uuid": "^2.0.2",
+    "vue2-leaflet": "^2.7.1",
     "vuetify": "^2.4.0",
     "vuex": "^3.4.0"
   },

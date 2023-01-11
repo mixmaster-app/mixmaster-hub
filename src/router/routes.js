@@ -18,12 +18,12 @@ const ROUTE_LIST = [
     doDspInFunctionnality: false
   },
   {
-    name: "Profile",
-    path: "/profile",
-    description: "User profile",
-    iconName: "mdi-account",
+    name: "Map",
+    path: "/map",
+    description: "Mixmaster map",
+    iconName: "mdi-map",
     imageName: undefined,
-    doDspInSidebar: false,
+    doDspInSidebar: true,
     doDspInFunctionnality: false
   },
   {
