@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { Hench } from "@/metier/hench/Hench.js";
+import { Hench } from "@/models/hench/Hench.js";
 import HenchModal from "@/components/hench/HenchModal.vue";
 
 export default {

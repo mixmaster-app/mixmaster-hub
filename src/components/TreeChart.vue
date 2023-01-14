@@ -194,7 +194,7 @@
 // https://github.com/tower1229/Vue-Tree-Chart/blob/master/src/components/TreeChart.vue
 import HenchSearchInput from "@/components/hench/HenchSearchInput.vue";
 import HenchModal from "@/components/hench/HenchModal.vue";
-import { Hench } from "@/metier/hench/Hench.js";
+import { Hench } from "@/models/hench/Hench.js";
 
 export default {
   name: "TreeChart",

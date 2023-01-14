@@ -1,5 +1,5 @@
 import { get } from "@/services/api/Config.js";
-import { Event } from "@/metier/Event.js";
+import { Event } from "@/models/Event.js";
 
 function castResponseToEventArray(data) {
   const resultLength = data.length;

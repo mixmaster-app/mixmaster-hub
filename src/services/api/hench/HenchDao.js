@@ -1,5 +1,5 @@
 import { get } from "@/services/api/Config.js";
-import { Hench } from "@/metier/hench/Hench.js";
+import { Hench } from "@/models/hench/Hench.js";
 
 async function castResponseToHenchArray(result) {
   const henchListLength = result.length;

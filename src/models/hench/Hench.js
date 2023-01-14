@@ -1,7 +1,7 @@
-import Type from "@/metier/hench/HenchType.js";
-import Stats from "@/metier/hench/HenchStats.js";
-import Zone from "@/metier/hench/Zone.js";
-import HenchMix from "@/metier/hench/HenchMix.js";
+import Type from "@/models/hench/HenchType.js";
+import Stats from "@/models/hench/HenchStats.js";
+import Zone from "@/models/hench/Zone.js";
+import HenchMix from "@/models/hench/HenchMix.js";
 
 class Hench {
   note;

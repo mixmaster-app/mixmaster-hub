@@ -85,7 +85,7 @@
 </template>
 
 <script>
-import { Hench } from "@/metier/hench/Hench.js";
+import { Hench } from "@/models/hench/Hench.js";
 import HenchSearchInput from "@/components/hench/HenchSearchInput.vue";
 
 export default {

@@ -1,5 +1,5 @@
-import { Hench } from "@/metier/hench/Hench.js";
-import Item from "@/metier/Item.js";
+import { Hench } from "@/models/hench/Hench.js";
+import Item from "@/models/Item.js";
 
 class HenchMix {
   id;
