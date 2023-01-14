@@ -1,4 +1,4 @@
-import { get } from "@/api/config";
+import { get } from "@/services/api/Config.js";
 import { Event } from "@/metier/Event.js";
 
 function castResponseToEventArray(data) {

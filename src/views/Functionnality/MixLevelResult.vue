@@ -4,7 +4,6 @@
       <v-card class="mx-auto my-12">
         <v-card-text>
           <v-row justify="center">
-            <v-col cols="12" md="4"></v-col>
             <v-col cols="12" md="4" class="text-center">
               <p>
                 Result
@@ -14,10 +13,10 @@
                 width="180"
                 disabled
                 style="color:black !important;"
-                >{{ result }}</v-btn
               >
+                {{ result }}
+              </v-btn>
             </v-col>
-            <v-col cols="12" md="4"></v-col>
           </v-row>
           <v-row justify="center">
             <v-col cols="12" md="4" class="text-center">
@@ -25,9 +24,9 @@
                 bordered
                 color="black"
                 :content="
-                  (hench_left.levelMinimum || 0) +
+                  (hench_left.minimum_level || 0) +
                     '-' +
-                    (hench_left.levelMaximum || 0)
+                    (hench_left.maximum_level || 0)
                 "
                 overlap
               >
@@ -45,15 +44,15 @@
                 type="number"
               ></v-text-field>
             </v-col>
-            <v-col cols="12" md="4"></v-col>
+            <v-col cols="12" md="4" />
             <v-col cols="12" md="4" class="text-center">
               <v-badge
                 bordered
                 color="black"
                 :content="
-                  (hench_right.levelMinimum || 0) +
+                  (hench_right.minimum_level || 0) +
                     '-' +
-                    (hench_right.levelMaximum || 0)
+                    (hench_right.maximum_level || 0)
                 "
                 overlap
               >
@@ -72,14 +71,12 @@
               ></v-text-field>
             </v-col>
           </v-row>
-          <v-row>
-            <v-col cols="12" md="4"></v-col>
+          <v-row justify="center">
             <v-col cols="12" md="4" class="text-center">
               <v-btn elevation="2" color="primary" @click="calcLevelMix()">
                 CALCUL
               </v-btn>
             </v-col>
-            <v-col cols="12" md="4"></v-col>
           </v-row>
         </v-card-text>
       </v-card>
@@ -117,11 +114,11 @@ export default {
     },
     emitHenchR(hench_right) {
       this.hench_right = hench_right;
-      this.maxLvlRightHench = hench_right.levelMaximum;
+      this.maxLvlRightHench = hench_right.maximum_level;
     },
     emitHenchL(hench_left) {
       this.hench_left = hench_left;
-      this.maxLvlLeftHench = hench_left.levelMaximum;
+      this.maxLvlLeftHench = hench_left.maximum_level;
     }
   }
 };

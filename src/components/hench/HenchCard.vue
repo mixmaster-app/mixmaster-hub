@@ -29,7 +29,7 @@
           max-width="16"
           :src="data.getImageTypePath()"
         />
-        <h5>{{ data.name }}</h5>
+        <h6>{{ data.name }}</h6>
       </v-card-title>
       <v-card-subtitle class="text-center">
         <h6>Lv. {{ data.minimum_level }} - {{ data.maximum_level }}</h6>

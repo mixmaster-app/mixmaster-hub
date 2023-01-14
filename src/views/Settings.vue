@@ -1,15 +1,26 @@
 <template>
   <div class="settings full-height">
-    <Data />
+    <v-card class="pa-4 scroll full-height user-none">
+      <v-simple-table>
+        <thead>
+          <tr>
+            <td colspan="2" class="text-left">
+              Settings 🔧
+            </td>
+          </tr>
+        </thead>
+        <SettingsBody />
+      </v-simple-table>
+    </v-card>
   </div>
 </template>
 
 <script>
-import Data from "@/views/Settings/Data.vue";
+import SettingsBody from "@/components/Settings/SettingsBody.vue";
 
 export default {
   name: "Settings",
-  components: { Data },
+  components: { SettingsBody },
   data() {
     return {
       user_identity: localStorage.getItem("user_identity")
@@ -18,3 +29,9 @@ export default {
   methods: {}
 };
 </script>
+
+<style scoped>
+.almost-full-width {
+  width: 90%;
+}
+</style>
