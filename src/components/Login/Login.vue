@@ -46,6 +46,8 @@
 </template>
 
 <script>
+import fs from "fs";
+
 const exec = require("child_process").exec;
 
 export default {
@@ -93,6 +95,12 @@ export default {
     }
     this.allowAuthentication = true;
     this.path = localStorage.getItem("mixmasterExe");
+    fs.access(this.path, fs.constants.X_OK, err => {
+      if (err) {
+        this.path = undefined;
+        localStorage.removeItem("mixmasterExe");
+      }
+    });
     this.login = localStorage.getItem("mixmaster_login");
     this.password = localStorage.getItem("mixmaster_password");
     if (this.password) {
