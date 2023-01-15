@@ -12,10 +12,10 @@
       <span class="version">({{ this.package.fullVersion }})</span>
     </span>
     <v-spacer class="drag syst-spacer"></v-spacer>
-    <v-icon color="black" @click="minimize">
+    <v-icon @click="minimize">
       mdi-window-minimize
     </v-icon>
-    <v-icon color="black" @click="maximize">
+    <v-icon @click="maximize">
       mdi-window-maximize
     </v-icon>
     <v-icon color="red" @click="close">

@@ -54,9 +54,6 @@ export default {
       this.$set(this, "favorite", true);
       this.saveTreeData();
     },
-    getFavorite() {
-      return this.$store.state.henchMixFavorite;
-    },
     defaultValue() {
       this.$set(this, "key", undefined);
       this.$set(this, "treeData", this.defaultTreeData);

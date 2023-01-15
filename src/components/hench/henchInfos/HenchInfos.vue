@@ -1,5 +1,5 @@
 <template>
-  <v-card min-height="550px" style="background: none;">
+  <v-card min-height="550px" color="transparent">
     <v-container>
       <v-row>
         <v-col cols="12" sm="1" style="padding:0">
@@ -14,8 +14,7 @@
             </v-tab>
           </v-tabs>
         </v-col>
-
-        <v-col cols="12" sm="11" style="background: white; border-radius: 5px">
+        <v-col class="main-hench-card" cols="12" sm="11" style="">
           <v-row>
             <v-col cols="12" sm="5">
               <v-card :elevation="4" :class="['_' + data.type.id + '-bg']">
@@ -127,21 +126,32 @@ export default {
 .v-tabs-slider-wrapper {
   display: none;
 }
-
-.theme--light.v-tabs > .v-tabs-bar {
+.v-tabs > .v-tabs-bar {
   background-color: transparent !important;
 }
-
+.main-hench-card {
+  border-radius: 5px;
+}
+.theme--light .main-hench-card {
+  background: white !important;
+}
+.theme--dark .main-hench-card {
+  background: #1E1E1E !important;
+}
 .custom-tabs {
   border-width: 1.5px 0 1.5px 1.5px;
   border-style: solid;
   border-color: #353535;
   min-height: 80px;
   border-radius: 5px 0 0 5px;
-  background: white;
   margin-top: 28px;
 }
-
+.theme--light .custom-tabs {
+  background: white;
+}
+.theme--dark .custom-tabs {
+  background: #a5a5a5;
+}
 .custom-tabs:not(.v-tab--active) {
   box-shadow: inset -5px 0px 6px -2px rgb(0 0 0 / 30%);
 }

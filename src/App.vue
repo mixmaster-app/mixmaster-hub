@@ -1,10 +1,10 @@
 <template>
-  <v-app class="app-main">
+  <v-app :class="['app-main']">
     <Systembar />
     <Sidebar :active="activeSidebar" v-model="activeSidebar" />
 
-    <v-main class="app" style="margin-top: 10px; height: 100%;">
-      <router-view></router-view>
+    <v-main class="app">
+      <router-view />
     </v-main>
   </v-app>
 </template>
@@ -14,12 +14,15 @@ import Systembar from "@/components/Systembar.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import "@fontsource/sora";
 require("@/assets/styles/style.css");
+require("@/assets/styles/themes/main-theme.css");
 
 export default {
   name: "App",
   components: { Sidebar, Systembar },
-  data: () => {
-    return { activeSidebar: true };
+  data() {
+    return {
+      activeSidebar: true
+    };
   },
   methods: {},
   mounted() {}
@@ -27,8 +30,12 @@ export default {
 </script>
 
 <style>
+.app {
+  margin-top: 10px;
+  height: 100%;
+}
 .app-main {
-  font-family: "Sora";
+  font-family: var(--default-font);
 }
 .v-main__wrap {
   height: calc(100vh - 30px);

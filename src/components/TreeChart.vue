@@ -35,26 +35,10 @@
       class="pa-3 justify-center"
     >
       <div v-if="treeData.nodelevel == 1">
-        <v-btn
-          icon
-          color="black"
-          tile
-          small
-          outlined
-          class="ma-2"
-          @click="zoomIn"
-        >
+        <v-btn icon tile small outlined class="ma-2" @click="zoomIn">
           <v-icon>mdi-plus</v-icon>
         </v-btn>
-        <v-btn
-          icon
-          color="black"
-          tile
-          small
-          outlined
-          class="ma-2"
-          @click="zoomOut"
-        >
+        <v-btn icon tile small outlined class="ma-2" @click="zoomOut">
           <v-icon>mdi-minus</v-icon>
         </v-btn>
       </div>
@@ -127,11 +111,7 @@
                         />
                       </v-avatar>
                     </template>
-                    <v-avatar
-                      size="70"
-                      color="white"
-                      @click="activeModal = true"
-                    >
+                    <v-avatar size="70" @click="activeModal = true">
                       <img :src="treeData.hench.imageAvatar" />
                     </v-avatar>
                   </v-badge>
@@ -139,7 +119,7 @@
                 <div class="name">
                   {{ treeData.hench.name }} <br />
                   <select
-                    class="select border-black"
+                    class="select"
                     :key="treeData.hench.id"
                     :disabled="this.getChild().length == 1"
                     @change="mixListUpdate"
@@ -299,6 +279,13 @@ export default {
 </script>
 
 <style scoped>
+.theme--dark option {
+  background: #1e1e1e !important;
+  color: white;
+}
+.select {
+  color: inherit;
+}
 table {
   border-collapse: separate !important;
   border-spacing: 0 !important;
@@ -411,7 +398,7 @@ td {
   display: block;
   height: 4em;
   /* overflow: hidden; */
-  background: #fff;
+  /* background: #fff; */
   /* border: 1px solid #ccc; */
   box-sizing: border-box;
   margin: 0 auto;

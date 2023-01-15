@@ -6,7 +6,7 @@
         Specify the mixmaster launcher emplacement
       </p>
     </td>
-    <td class="text-right">
+    <td class="text-right pa-3">
       <v-file-input @change="onAddMixmasterExe" />
       <v-chip v-if="mixmasterExePath != ''">{{ mixmasterExePath }}</v-chip>
     </td>

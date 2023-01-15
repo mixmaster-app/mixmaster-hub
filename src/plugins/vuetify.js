@@ -5,6 +5,7 @@ Vue.use(Vuetify);
 
 export default new Vuetify({
   theme: {
+    dark: localStorage.getItem("dark_theme") == "true",
     options: {
       customProperties: true
     },
@@ -17,7 +18,8 @@ export default new Vuetify({
         info: "#2196F3",
         success: "#4CAF50",
         warning: "#FFC107"
-      }
+      },
+      dark: {}
     }
   }
 });

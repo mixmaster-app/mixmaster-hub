@@ -90,7 +90,6 @@ export default {
       }" && start MixMaster.exe 4.644700 164.132.203.180 23500 ${
         this.fullScreen ? "1" : "0"
       } ${this.login} ${this.password} 0 SEEDC `;
-      console.log(command);
       this.execute(command, data => {
         console.log(data);
       });

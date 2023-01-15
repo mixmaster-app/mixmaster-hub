@@ -2,13 +2,9 @@
   <div class="main">
     <v-row no-gutters>
       <div v-for="(index, id) in filterIndex" :key="id">
-        <v-card
-          class="pa-1 ma-3 blue-grey lighten-5"
-          :to="index.path"
-          :title="index.description"
-        >
+        <v-card class="pa-1 ma-3" :to="index.path" :title="index.description">
           <v-img
-            class="ma-2 rounded-lg border-lightgray"
+            class="ma-2 rounded-lg"
             height="128"
             contain
             :src="getFuncImg(index.imageName)"

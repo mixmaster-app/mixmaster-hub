@@ -1,15 +1,13 @@
 <template>
   <v-card class="no-box-shadow">
     <v-card-text>
-      <v-card-title class="justify-center black--text">
+      <v-card-title class="justify-center">
         <h2>{{ data.name }}</h2>
       </v-card-title>
       <v-card-subtitle class="text-center">
         <h5>
           Lv. {{ data.minimum_level }} - {{ data.maximum_level }}
-          <span class="black--text">
-            (M.{{ this.getMaster(data.minimum_level) }})
-          </span>
+          <span> (M.{{ this.getMaster(data.minimum_level) }}) </span>
         </h5>
       </v-card-subtitle>
       <v-card-text class="text-center">

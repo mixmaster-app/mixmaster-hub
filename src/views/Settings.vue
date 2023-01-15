@@ -30,8 +30,14 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+.settings {
+  background: var(--background-main) !important;
+}
 .almost-full-width {
   width: 90%;
+}
+tr:hover {
+  background-color: transparent !important;
 }
 </style>
