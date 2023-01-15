@@ -25,17 +25,16 @@ export default {
   },
   methods: {
     onAddMixmasterExe(file) {
-      localStorage.setItem("mixmasterExe", path.dirname(file.path));
-      this.mixmasterExePath = localStorage.getItem("mixmasterExe");
+      this.$store.commit("updateLauncherEmplacement", path.dirname(file.path));
+      this.mixmasterExePath = this.$store.state.userInfos.exe;
     }
   },
   mounted() {
-    if (localStorage.getItem("mixmasterExe")) {
-      try {
-        this.mixmasterExePath = localStorage.getItem("mixmasterExe");
-      } catch (e) {
-        localStorage.removeItem("henchSearch");
-      }
+    if (
+      this.$store.state.userInfos.exe &&
+      this.$store.state.userInfos.exe != ""
+    ) {
+      this.mixmasterExePath = this.$store.state.userInfos.exe;
     }
   }
 };

@@ -136,7 +136,7 @@ export default {
   background: white !important;
 }
 .theme--dark .main-hench-card {
-  background: #1E1E1E !important;
+  background: #1e1e1e !important;
 }
 .custom-tabs {
   border-width: 1.5px 0 1.5px 1.5px;
@@ -150,7 +150,7 @@ export default {
   background: white;
 }
 .theme--dark .custom-tabs {
-  background: #a5a5a5;
+  background: #d3d3d3;
 }
 .custom-tabs:not(.v-tab--active) {
   box-shadow: inset -5px 0px 6px -2px rgb(0 0 0 / 30%);

@@ -10,11 +10,18 @@
       ></v-img>
       <v-row>
         <v-col cols="12">
-          <v-text-field type="text" v-model="login" label="Login" required />
+          <v-text-field
+            type="text"
+            v-model="login"
+            label="Login"
+            @change="saveUserInfos"
+            required
+          />
           <v-text-field
             type="password"
             v-model="password"
             label="Password"
+            @change="saveUserInfos"
             required
           />
         </v-col>
@@ -22,22 +29,25 @@
       <v-row class="my-0">
         <v-col cols="6">
           <v-checkbox
+            type="checkbox"
             v-model="savePassword"
             label="Remember me?"
-            type="checkbox"
+            @change="saveUserInfos"
           />
         </v-col>
         <v-col cols="6">
           <v-checkbox
+            type="checkbox"
             v-model="fullScreen"
             label="Full screen"
-            type="checkbox"
+            @change="saveUserInfos"
           />
         </v-col>
       </v-row>
       <v-btn
         @click="connect"
         color="primary"
+        :disabled="!(login && password)"
         v-if="allowAuthentication && path"
       >
         connect
@@ -79,11 +89,17 @@ export default {
         callback(stdout);
       });
     },
+    saveUserInfos() {
+      this.$store.commit("updateUserInfos", {
+        path: this.path,
+        login: this.login,
+        password: this.password,
+        savePassword: this.savePassword,
+        fullScreen: this.fullScreen
+      });
+    },
     connect() {
-      localStorage.setItem("mixmaster_login", this.login);
-      if (this.savePassword) {
-        localStorage.setItem("mixmaster_password", this.password);
-      }
+      this.saveUserInfos();
 
       const command = ` cd "${
         this.path
@@ -96,19 +112,18 @@ export default {
     }
   },
   mounted() {
-    if (localStorage.getItem("mixmasterExe") == "") {
+    if (this.$store.state.userInfos.exe == "") {
       return;
     }
     this.allowAuthentication = true;
-    this.path = localStorage.getItem("mixmasterExe");
+    this.path = this.$store.state.userInfos.exe;
     fs.access(this.path ?? "", fs.constants.X_OK, err => {
       if (err) {
         this.path = undefined;
-        localStorage.removeItem("mixmasterExe");
       }
     });
-    this.login = localStorage.getItem("mixmaster_login");
-    this.password = localStorage.getItem("mixmaster_password");
+    this.login = this.$store.state.userInfos.login;
+    this.password = this.$store.state.userInfos.password;
     if (this.password) {
       this.savePassword = true;
     }

@@ -1,12 +1,12 @@
 {
-  "name": "mixmaster-dekstop",
-  "fullName": "MixmasterDesktop",
+  "name": "mixmaster-hub",
+  "fullName": "MixmasterHub",
   "version": "1.1.0",
-  "fullVersion": "1.1.0",
-  "description": "Mixmaster Desktop application",
+  "fullVersion": "B1.2.0",
+  "description": "MixmasterHub application",
   "author": {
     "name": "Kiio__",
-    "url": "https://gitlab.com/Kiio__"
+    "url": "https://gitea.com/Kiio__"
   },
   "private": true,
   "scripts": {
