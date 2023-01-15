@@ -1,6 +1,13 @@
 <template>
   <v-container>
     <v-card class="pa-6">
+      <v-img
+        class="ma-2 rounded-lg"
+        height="96"
+        contain
+        src="@/assets/logo.png"
+        alt="MMFR1-Logo"
+      ></v-img>
       <v-row>
         <v-col cols="12">
           <v-text-field type="text" v-model="login" label="Login" required />
@@ -95,7 +102,7 @@ export default {
     }
     this.allowAuthentication = true;
     this.path = localStorage.getItem("mixmasterExe");
-    fs.access(this.path, fs.constants.X_OK, err => {
+    fs.access(this.path ?? "", fs.constants.X_OK, err => {
       if (err) {
         this.path = undefined;
         localStorage.removeItem("mixmasterExe");

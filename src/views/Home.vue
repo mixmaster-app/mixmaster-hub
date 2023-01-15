@@ -1,26 +1,21 @@
 <template>
-  <div class="home center-div text-center">
-    <v-img
-      class="ma-2 rounded-lg"
-      height="256"
-      contain
-      src="@/assets/logo.png"
-      alt="MMFR1-Logo"
-    ></v-img>
-    <v-card-title>
-      Bienvenue sur l'application {{ this.package.fullName }}
-    </v-card-title>
-    <v-card-subtitle>
-      ( Version: <b>{{ this.package.fullVersion }}</b> )
-    </v-card-subtitle>
-    <Login />
+  <div class="main h-100 scroll-y">
+    <v-row no-gutters>
+      <v-col cols="4" align-self="center">
+        <Login />
+      </v-col>
+      <v-col class="text-center" cols="8">
+        <NewsDisplay />
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
 import pjson from "@/../package.json";
 import { machineIdSync } from "node-machine-id";
-import Login from "../components/Login/Login.vue";
+import Login from "@/components/Login/Login.vue";
+import NewsDisplay from "@/components/Home/NewsDisplay.vue";
 
 export default {
   name: "Home",
@@ -29,7 +24,7 @@ export default {
       package: pjson
     };
   },
-  components: { Login },
+  components: { Login, NewsDisplay },
   methods: {},
   mounted() {
     if (!localStorage.getItem("user_identity")) {
