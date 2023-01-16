@@ -18,7 +18,7 @@
 import TreeChart from "@/components/TreeChart";
 import TreeFavorite from "@/components/TreeFavorite";
 import { uuid } from "vue-uuid";
-import { getOneById } from "@/services/api/hench/HenchDao.js";
+import { getOneById } from "@/services/Api/Hench/HenchDao.js";
 
 export default {
   components: {

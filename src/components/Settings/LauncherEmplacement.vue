@@ -8,7 +8,7 @@
     </td>
     <td class="text-right pa-3">
       <v-file-input @change="onAddMixmasterExe" />
-      <v-chip v-if="mixmasterExePath != ''">{{ mixmasterExePath }}</v-chip>
+      <v-chip v-if="getMixmasterExePath()">{{ getMixmasterExePath() }}</v-chip>
     </td>
   </tr>
 </template>
@@ -20,22 +20,24 @@ export default {
   name: "LauncherEmplacement",
   data() {
     return {
-      mixmasterExePath: ""
+      file: undefined
     };
   },
   methods: {
     onAddMixmasterExe(file) {
-      this.$store.commit("updateLauncherEmplacement", path.dirname(file.path));
-      this.mixmasterExePath = this.$store.state.userInfos.exe;
+      if (file) {
+        this.$store.commit(
+          "updateLauncherEmplacement",
+          path.dirname(file.path)
+        );
+        this.mixmasterExePath = this.$store.state.userInfos.exe;
+      }
+      return (file = undefined);
+    },
+    getMixmasterExePath() {
+      return this.$store.state.userInfos.exe;
     }
   },
-  mounted() {
-    if (
-      this.$store.state.userInfos.exe &&
-      this.$store.state.userInfos.exe != ""
-    ) {
-      this.mixmasterExePath = this.$store.state.userInfos.exe;
-    }
-  }
+  mounted() {}
 };
 </script>

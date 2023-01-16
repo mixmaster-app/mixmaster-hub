@@ -1,13 +1,12 @@
-const API_BASE_URL = "http://127.0.0.1:3000/api";
-const API_DEFAULT_TIMEOUT = 3600;
 import axios from "axios";
 import { VueStore } from "../../store";
+import Config from "../Config";
 
 function createUrl(path) {
-  return API_BASE_URL + path;
+  return Config.Api.baseUrl + path;
 }
 
-function get(url, timeout = API_DEFAULT_TIMEOUT) {
+function get(url, timeout = Config.Api.timeout) {
   return axios({
     method: "get",
     url: createUrl(url),
@@ -18,4 +17,4 @@ function get(url, timeout = API_DEFAULT_TIMEOUT) {
   });
 }
 
-export { API_BASE_URL as apiUrl, createUrl, get };
+export { get };

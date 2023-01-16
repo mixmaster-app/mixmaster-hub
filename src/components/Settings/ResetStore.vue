@@ -31,9 +31,7 @@ export default {
       this.$store.commit("resetStore", true);
       localStorage.removeItem("henchSearch");
       localStorage.removeItem("treeMixData");
-      localStorage.removeItem("mixmasterExe");
-      localStorage.removeItem("mixmaster_login");
-      localStorage.removeItem("mixmaster_password");
+      this.$forceUpdate();
     }
   }
 };

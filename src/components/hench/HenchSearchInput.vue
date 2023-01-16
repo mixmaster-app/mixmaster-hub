@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { getAllHenchWhereLibelleContains } from "@/services/api/hench/HenchDao.js";
+import { getAllHenchWhereLibelleContains } from "@/services/Api/Hench/HenchDao.js";
 
 export default {
   name: "HenchSearchInput",

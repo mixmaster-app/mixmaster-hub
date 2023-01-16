@@ -12,7 +12,7 @@
         <v-icon left>
           mdi-account
         </v-icon>
-        <span style="user-select: text;">{{ this.userIdentity }}</span>
+        <span style="user-select: text;">{{ this.getUserIdentity() }}</span>
       </v-chip>
     </td>
   </tr>
@@ -23,10 +23,12 @@ export default {
   name: "UserIdentity",
   components: {},
   data() {
-    return {
-      userIdentity: localStorage.getItem("user_identity")
-    };
+    return {};
   },
-  methods: {}
+  methods: {
+    getUserIdentity() {
+      return this.$store.state.userIdentity;
+    }
+  }
 };
 </script>

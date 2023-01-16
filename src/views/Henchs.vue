@@ -28,7 +28,7 @@ import HenchCard from "@/components/hench/HenchCard.vue";
 import {
   getAllHenchs,
   getAllHenchWhereLibelleContains
-} from "@/services/api/hench/HenchDao.js";
+} from "@/services/Api/Hench/HenchDao.js";
 
 export default {
   name: "Henchs",

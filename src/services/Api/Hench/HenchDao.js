@@ -1,4 +1,4 @@
-import { get } from "@/services/api/Config.js";
+import { get } from "@/services/Api/Access.js";
 import { Hench } from "@/models/hench/Hench.js";
 
 async function castResponseToHenchArray(result) {

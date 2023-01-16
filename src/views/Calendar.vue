@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { getAllEventFrom } from "@/services/api/EventDao.js";
+import { getAllEventFrom } from "@/services/Api/EventDao.js";
 
 export default {
   name: "Calendar",

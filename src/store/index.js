@@ -58,7 +58,15 @@ export default new Vuex.Store({
     resetStore(state, value) {
       if (value) {
         state.henchMixFavorite = [];
+        state.userInfos = {
+          exe: undefined,
+          login: undefined,
+          password: undefined,
+          savePassword: undefined,
+          fullScreen: undefined
+        };
         store.set("hench_mix_favorite", state.henchMixFavorite);
+        store.set("user_infos", state.userInfos);
       }
     }
   },
