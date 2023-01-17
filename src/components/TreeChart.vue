@@ -184,8 +184,7 @@ export default {
     return {
       zoom: 100,
       activeModal: false,
-      treeData: this.json,
-      searchValue: "_"
+      treeData: this.json
     };
   },
   watch: {

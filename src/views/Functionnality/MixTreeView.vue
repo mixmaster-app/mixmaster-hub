@@ -47,26 +47,25 @@ export default {
   },
   methods: {
     addFavorite() {
-      this.$store.commit("addHenchMixFavorite", this.treeData);
-      let nData = this.defaultTreeData;
-      this.$set(this, "key", undefined);
-      this.$set(this, "treeData", nData);
-      this.$set(this, "favorite", true);
+      this.$store.commit(
+        "addHenchMixFavorite",
+        JSON.parse(JSON.stringify(this.treeData))
+      );
+      this.defaultValue();
       this.saveTreeData();
     },
     defaultValue() {
+      let nData = JSON.parse(JSON.stringify(this.defaultTreeData));
       this.$set(this, "key", undefined);
-      this.$set(this, "treeData", this.defaultTreeData);
+      this.$set(this, "treeData", nData);
       this.$set(this, "favorite", false);
     },
     resetTree(value) {
-      if (value) {
+      if (value && this.key) {
         this.$store.commit("removeHenchFromFavorite", this.key);
-        this.$set(this, "key", undefined);
-        this.$set(this, "treeData", this.defaultTreeData);
-        this.$set(this, "favorite", false);
-        this.saveTreeData();
       }
+      this.defaultValue();
+      this.saveTreeData();
     },
     loadFavorite({ value, key }) {
       this.$set(this, "key", key);
