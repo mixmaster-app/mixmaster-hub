@@ -7,15 +7,7 @@
     fixed
     app
   >
-    <v-list>
-      <v-list-item to="/">
-        <v-img src="@/assets/logo.png"> </v-img>
-      </v-list-item>
-    </v-list>
-
-    <v-divider></v-divider>
-
-    <v-list nav dense>
+    <v-list nav dense class="pt-5">
       <div v-for="(tab, key) in filterIndex" :key="key">
         <v-list-item link :to="tab.path" v-if="tab.doDspInSidebar">
           <v-list-item-icon>

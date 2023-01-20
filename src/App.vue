@@ -28,26 +28,3 @@ export default {
   mounted() {}
 };
 </script>
-
-<style>
-.app {
-  margin-top: 10px;
-  height: 100%;
-}
-.app-main {
-  font-family: var(--default-font);
-}
-.v-main__wrap {
-  height: calc(100vh - 30px);
-}
-.w-100 {
-  width: 100%;
-}
-.h-100 {
-  height: 100%;
-}
-.scroll-y {
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-</style>
