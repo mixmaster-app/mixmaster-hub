@@ -6,7 +6,13 @@ import installExtension from "electron-devtools-installer";
 const isDevelopment = process.env.NODE_ENV !== "production";
 import path from "path";
 import Store from "electron-store";
+const { autoUpdater } = require("electron-updater");
 
+autoUpdater.setFeedURL({
+  provider: "github",
+  repo: "mixmaster-hub",
+  owner: "mixmaster-app"
+});
 let win = null;
 
 // Scheme must be registered before the app is ready
@@ -39,6 +45,7 @@ async function createWindow() {
     createProtocol("app");
     // Load the index.html when not in development
     win.loadURL("app://./index.html");
+    autoUpdater.checkForUpdatesAndNotify();
   }
 
   win.webContents.setZoomFactor(1.0);
