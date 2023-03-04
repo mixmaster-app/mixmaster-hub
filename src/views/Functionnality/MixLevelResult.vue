@@ -86,7 +86,7 @@
 
 <script>
 import { Hench } from "@/models/hench/Hench.js";
-import HenchSearchInput from "@/components/hench/HenchSearchInput.vue";
+import HenchSearchInput from "@/components/HenchSearchInput.vue";
 
 export default {
   components: { HenchSearchInput },

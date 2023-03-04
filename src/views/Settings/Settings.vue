@@ -1,14 +1,9 @@
 <template>
-  <div class="settings full-height">
-    <v-card class="pa-4 scroll full-height user-none">
+  <div class="settings h-100">
+    <v-card class="pa-4 scroll">
+      <h1 class="pl-2">Paramètres 🔧</h1>
+      <v-divider></v-divider>
       <v-simple-table>
-        <thead>
-          <tr>
-            <td colspan="2" class="text-left">
-              Settings 🔧
-            </td>
-          </tr>
-        </thead>
         <SettingsBody />
       </v-simple-table>
     </v-card>
@@ -16,7 +11,7 @@
 </template>
 
 <script>
-import SettingsBody from "@/components/Settings/SettingsBody.vue";
+import SettingsBody from "@/views/Settings/Components/SettingsBody.vue";
 
 export default {
   name: "Settings",

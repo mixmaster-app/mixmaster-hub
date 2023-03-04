@@ -1,14 +1,13 @@
 <template>
   <tr>
     <td class="text-left pa-2">
-      <b>Reset store</b>
+      <h3>Réinitialiser le cache</h3>
       <p class="mb-0 mt-2">
-        Reinitialize the value stored in the application (include MixTree and
-        hench research).
+        Réinitialise le cache de l'application (Inclue les mix favoris et la
+        recherche de henchs)
       </p>
       <p>
-        Be aware that this is a destructive action, deleted value cannot be
-        restored
+        Attention les valeurs supprimées ne peuvent pas être récupérées.
       </p>
     </td>
     <td class="text-right">

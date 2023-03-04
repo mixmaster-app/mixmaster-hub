@@ -41,7 +41,7 @@
 
 <script>
 import { Hench } from "@/models/hench/Hench.js";
-import HenchModal from "@/components/hench/HenchModal.vue";
+import HenchModal from "@/components/HenchModal/HenchModal.vue";
 
 export default {
   name: "HenchCard",

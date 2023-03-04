@@ -31,7 +31,7 @@
           <v-checkbox
             type="checkbox"
             v-model="savePassword"
-            label="Remember me?"
+            label="Se souvenir de moi?"
             @change="saveUserInfos"
           />
         </v-col>
@@ -39,7 +39,7 @@
           <v-checkbox
             type="checkbox"
             v-model="fullScreen"
-            label="Full screen"
+            label="Plein écran"
             @change="saveUserInfos"
           />
         </v-col>
@@ -53,7 +53,8 @@
         connect
       </v-btn>
       <v-alert color="orange" type="warning" v-else>
-        Please Configure the path to your <u>Mixmaster.Exe</u> in Settings
+        Merci de configurer le chemin de <u>Mixmaster.Exe</u> dans les
+        paramètres
       </v-alert>
       <v-alert color="red" type="error" v-if="errorMessage">
         {{ errorMessage }}
@@ -64,6 +65,7 @@
 
 <script>
 import fs from "fs";
+import config from "@/services/Config.js";
 
 const exec = require("child_process").exec;
 
@@ -84,7 +86,7 @@ export default {
     execute(command, callback) {
       exec(command, (error, stdout) => {
         if (error) {
-          this.errorMessage = "Error while trying to authenticate yourself";
+          this.errorMessage = "Erreur d'authentification";
         }
         callback(stdout);
       });
@@ -101,11 +103,11 @@ export default {
     connect() {
       this.saveUserInfos();
 
-      const command = ` cd "${
-        this.path
-      }" && start MixMaster.exe 4.644700 164.132.203.180 23500 ${
-        this.fullScreen ? "1" : "0"
-      } ${this.login} ${this.password} 0 SEEDC `;
+      const command = ` cd "${this.path}" && start MixMaster.exe 4.644700 ${
+        config.Mixmaster.ip
+      } 23500 ${
+        this.fullScreen ? "1" : "0" + " " + this.login + " " + this.password
+      } 0 SEEDC `;
       this.execute(command, data => {
         console.log(data);
       });

@@ -172,8 +172,8 @@
 
 <script>
 // https://github.com/tower1229/Vue-Tree-Chart/blob/master/src/components/TreeChart.vue
-import HenchSearchInput from "@/components/hench/HenchSearchInput.vue";
-import HenchModal from "@/components/hench/HenchModal.vue";
+import HenchSearchInput from "@/components/HenchSearchInput.vue";
+import HenchModal from "@/components/HenchModal/HenchModal.vue";
 import { Hench } from "@/models/hench/Hench.js";
 
 export default {

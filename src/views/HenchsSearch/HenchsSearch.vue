@@ -1,5 +1,5 @@
 <template>
-  <div class="main scroll">
+  <div class="main scroll" id="hench-search-result">
     <v-toolbar dense floating style="top:10px;">
       <v-text-field
         hide-details
@@ -24,14 +24,14 @@
 </template>
 
 <script>
-import HenchCard from "@/components/hench/HenchCard.vue";
+import HenchCard from "@/views/HenchsSearch/Components/HenchCard.vue";
 import {
   getAllHenchs,
   getAllHenchWhereLibelleContains
 } from "@/services/Api/Hench/HenchDao.js";
 
 export default {
-  name: "Henchs",
+  name: "HenchsSearch",
   data() {
     return {
       henchList: [],

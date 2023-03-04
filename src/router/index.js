@@ -1,13 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "@/views/Home.vue";
+import Home from "@/views/Home/Home.vue";
 import Functionnality from "@/views/Functionnality.vue";
 import MixLevelResult from "@/views/Functionnality/MixLevelResult.vue";
-import MixTreeView from "@/views/Functionnality/MixTreeView.vue";
-import Profile from "@/views/Profile.vue";
-import Henchs from "@/views/Henchs.vue";
-import Settings from "@/views/Settings.vue";
-import Calendar from "@/views/Calendar.vue";
+import MixTree from "@/views/MixTree/MixTree.vue";
+import Henchs from "@/views/HenchsSearch/HenchsSearch.vue";
+import Settings from "@/views/Settings/Settings.vue";
 
 Vue.use(VueRouter);
 
@@ -19,33 +17,23 @@ const routes = [
     component: Home
   },
   {
-    path: "/functionnality",
+    path: "/functionnalities",
     name: "Fonctionnalités",
     component: Functionnality
   },
   {
-    path: "/mixlvlresult",
-    name: "Mix level résultat",
+    path: "/mix-lvl-result",
+    name: "Résultat Lv. de mix",
     component: MixLevelResult
   },
   {
-    path: "/mixtreeview",
-    name: "Mix tree",
-    component: MixTreeView
+    path: "/mix-tree",
+    name: "Arbre de mix",
+    component: MixTree
   },
   {
-    path: "/calendar",
-    name: "Calendrier",
-    component: Calendar
-  },
-  {
-    path: "/profile",
-    name: "Profile",
-    component: Profile
-  },
-  {
-    path: "/henchs",
-    name: "Henchs",
+    path: "/henchs-search",
+    name: "Recherche de Henchs",
     component: Henchs
   },
   {

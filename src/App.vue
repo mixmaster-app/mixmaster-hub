@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import Systembar from "@/components/Systembar.vue";
-import Sidebar from "@/components/Sidebar.vue";
+import Systembar from "@/views/Main/Components/Systembar.vue";
+import Sidebar from "@/views/Main/Components/Sidebar.vue";
 import "@fontsource/sora";
 require("@/assets/styles/style.css");
 require("@/assets/styles/themes/main-theme.css");

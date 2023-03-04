@@ -3,7 +3,7 @@
     <td class="text-left pa-2">
       <b>Theme</b>
       <p class="mt-2">
-        Enable dark theme or light theme
+        Activer le thème sombre
       </p>
     </td>
     <td class="text-right">

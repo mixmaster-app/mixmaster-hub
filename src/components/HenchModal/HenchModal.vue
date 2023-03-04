@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import HenchInfos from "@/components/hench/henchInfos/HenchInfos.vue";
+import HenchInfos from "@/components/HenchModal/HenchInfos.vue";
 
 export default {
   name: "HenchModal",

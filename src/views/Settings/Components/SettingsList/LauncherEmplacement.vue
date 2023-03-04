@@ -3,7 +3,11 @@
     <td class="text-left pa-2">
       <b>Launcher Emplacement</b>
       <p class="mb-0 mt-2">
-        Specify the mixmaster launcher emplacement
+        Emplacement du launcher MixmasterFR officiel.
+      </p>
+      <p>
+        Il est possible de choisir n'importe quel fichier présent dans le
+        répertoir du launcher.
       </p>
     </td>
     <td class="text-right pa-3">

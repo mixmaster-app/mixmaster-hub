@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import TreeChart from "@/components/TreeChart";
-import TreeFavorite from "@/components/TreeFavorite";
+import TreeChart from "@/views/MixTree/Components/TreeChart";
+import TreeFavorite from "@/views/MixTree/Components/TreeFavorite";
 import { uuid } from "vue-uuid";
 import { getOneById } from "@/services/Api/Hench/HenchDao.js";
 
@@ -35,17 +35,19 @@ export default {
         class: ["rootNode"],
         children: []
       },
-      defaultTreeData: {
+      favorite: false
+    };
+  },
+  methods: {
+    defaultTreeData() {
+      return {
         hench: undefined,
         nodelevel: 1,
         type: "select",
         class: ["rootNode"],
         children: []
-      },
-      favorite: false
-    };
-  },
-  methods: {
+      };
+    },
     addFavorite() {
       this.$store.commit(
         "addHenchMixFavorite",
@@ -55,7 +57,7 @@ export default {
       this.saveTreeData();
     },
     defaultValue() {
-      let nData = JSON.parse(JSON.stringify(this.defaultTreeData));
+      let nData = this.defaultTreeData();
       this.$set(this, "key", undefined);
       this.$set(this, "treeData", nData);
       this.$set(this, "favorite", false);

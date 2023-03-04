@@ -63,10 +63,10 @@
 
 <script>
 import MarqueeText from "vue-marquee-text-component";
-import TabEvolutions from "@/components/hench/henchInfos/tab/TabEvolutions.vue";
-import TabMix from "@/components/hench/henchInfos/tab/TabMix.vue";
-import TabZones from "@/components/hench/henchInfos/tab/TabZones.vue";
-import TabStats from "@/components/hench/henchInfos/tab/TabStats.vue";
+import TabEvolutions from "@/components/HenchModal/Tabs/TabEvolutions.vue";
+import TabMix from "@/components/HenchModal/Tabs/TabMix.vue";
+import TabZones from "@/components/HenchModal/Tabs/TabZones.vue";
+import TabStats from "@/components/HenchModal/Tabs/TabStats.vue";
 
 export default {
   name: "HenchInfos",

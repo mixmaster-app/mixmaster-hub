@@ -1,10 +1,9 @@
 <template>
   <tr>
     <td class="text-left pa-2">
-      <b>User identity</b>
+      <b>Identifiant Utilisateur</b>
       <p class="mt-2">
-        This is a unique identier than can be used to solve errors calls to the
-        back-end data
+        Identifiant unique pour analyser de potentiels erreurs sur le back-end.
       </p>
     </td>
     <td class="text-right">

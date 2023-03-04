@@ -7,15 +7,26 @@
     fixed
     app
   >
-    <v-list nav dense class="pt-5">
-      <div v-for="(tab, key) in filterIndex" :key="key">
-        <v-list-item link :to="tab.path" v-if="tab.doDspInSidebar">
-          <v-list-item-icon>
-            <v-icon>{{ tab.iconName }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title> {{ tab.name }} </v-list-item-title>
-        </v-list-item>
-      </div>
+    <v-list nav dense>
+      <v-list-item link to="/home">
+        <v-list-item-icon>
+          <v-icon>mdi-home</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title> Home </v-list-item-title>
+      </v-list-item>
+      <v-divider></v-divider>
+
+      <v-list-item
+        v-for="(tab, key) in filterIndex"
+        :key="key"
+        link
+        :to="tab.path"
+      >
+        <v-list-item-icon>
+          <v-icon>{{ tab.iconName }}</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title> {{ tab.name }} </v-list-item-title>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -34,7 +45,7 @@ export default {
   },
   computed: {
     filterIndex() {
-      return this.indexList.filter(i => i.doDspInSidebar === true);
+      return this.indexList.filter(i => i.doDspInSidebar);
     }
   },
   watch: {
