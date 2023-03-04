@@ -14,7 +14,7 @@ const ROUTE_LIST = [
     description: "Fonctionnalités",
     iconName: "mdi-dots-grid",
     imageName: undefined,
-    doDspInSidebar: true,
+    doDspInSidebar: false,
     doDspInFunctionnality: false
   },
   {
@@ -30,8 +30,17 @@ const ROUTE_LIST = [
     name: "Arbre de mix",
     path: "/mix-tree",
     description: "Arbre de mix",
-    iconName: "mdi-file-tree",
+    iconName: "mdi-family-tree",
     imageName: "02_mixtreeview",
+    doDspInSidebar: true,
+    doDspInFunctionnality: true
+  },
+  {
+    name: "Résultat Lv. de mix",
+    path: "/mix-lvl-result",
+    description: "Résultat Lv. de mix",
+    iconName: "mdi-calculator-variant-outline",
+    imageName: "01_mixlevelresult",
     doDspInSidebar: true,
     doDspInFunctionnality: true
   },
@@ -39,19 +48,10 @@ const ROUTE_LIST = [
     name: "Paramètres",
     path: "/settings",
     description: "Paramètres",
-    iconName: "mdi-cog",
+    iconName: "mdi-cog-outline",
     imageName: undefined,
-    doDspInSidebar: true,
-    doDspInFunctionnality: false
-  },
-  {
-    name: "Résultat Lv. de mix",
-    path: "/mix-lvl-result",
-    description: "Résultat Lv. de mix",
-    iconName: undefined,
-    imageName: "01_mixlevelresult",
     doDspInSidebar: false,
-    doDspInFunctionnality: true
+    doDspInFunctionnality: false
   }
 ];
 

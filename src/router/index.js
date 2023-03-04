@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@/views/Home/Home.vue";
-import Functionnality from "@/views/Functionnality.vue";
-import MixLevelResult from "@/views/Functionnality/MixLevelResult.vue";
+import Functionnalities from "@/views/Functionnalities/Functionnalities.vue";
+import MixLevelResult from "@/views/Functionnalities/SimpleFunctionnalities/MixLevelResult.vue";
 import MixTree from "@/views/MixTree/MixTree.vue";
 import Henchs from "@/views/HenchsSearch/HenchsSearch.vue";
 import Settings from "@/views/Settings/Settings.vue";
@@ -19,7 +19,7 @@ const routes = [
   {
     path: "/functionnalities",
     name: "Fonctionnalités",
-    component: Functionnality
+    component: Functionnalities
   },
   {
     path: "/mix-lvl-result",
