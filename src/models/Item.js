@@ -13,7 +13,7 @@ class Item {
 
   getImagePath() {
     try {
-      return require("@/assets/item/mix/" + this.id.toString() + ".png");
+      return require("@/assets/img/item/mix/" + this.id.toString() + ".png");
     } catch (err) {
       return false;
     }

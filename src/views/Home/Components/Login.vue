@@ -1,66 +1,63 @@
 <template>
-  <v-container>
-    <v-card class="pa-6">
-      <v-img
-        class="ma-2 rounded-lg"
-        height="96"
-        contain
-        src="@/assets/logo.png"
-        alt="MMFR1-Logo"
-      ></v-img>
-      <v-row>
-        <v-col cols="12">
-          <v-text-field
-            type="text"
-            v-model="login"
-            label="Login"
-            @change="saveUserInfos"
-            required
-          />
-          <v-text-field
-            type="password"
-            v-model="password"
-            label="Password"
-            @change="saveUserInfos"
-            required
-          />
-        </v-col>
-      </v-row>
-      <v-row class="my-0">
-        <v-col cols="6">
-          <v-checkbox
-            type="checkbox"
-            v-model="savePassword"
-            label="Se souvenir de moi?"
-            @change="saveUserInfos"
-          />
-        </v-col>
-        <v-col cols="6">
-          <v-checkbox
-            type="checkbox"
-            v-model="fullScreen"
-            label="Plein écran"
-            @change="saveUserInfos"
-          />
-        </v-col>
-      </v-row>
-      <v-btn
-        @click="connect"
-        color="primary"
-        :disabled="!(login && password)"
-        v-if="allowAuthentication && path"
-      >
-        connect
-      </v-btn>
-      <v-alert color="orange" type="warning" v-else>
-        Merci de configurer le chemin de <u>Mixmaster.Exe</u> dans les
-        paramètres
-      </v-alert>
-      <v-alert color="red" type="error" v-if="errorMessage">
-        {{ errorMessage }}
-      </v-alert>
-    </v-card>
-  </v-container>
+  <v-card class="pa-6 fill-height fill-width">
+    <v-img
+      class="ma-2 rounded-lg"
+      height="96"
+      contain
+      src="@/assets/logo.png"
+      alt="MMFR1-Logo"
+    ></v-img>
+    <v-row>
+      <v-col cols="12">
+        <v-text-field
+          type="text"
+          v-model="login"
+          label="Login"
+          @change="saveUserInfos"
+          required
+        />
+        <v-text-field
+          type="password"
+          v-model="password"
+          label="Password"
+          @change="saveUserInfos"
+          required
+        />
+      </v-col>
+    </v-row>
+    <v-row class="my-0">
+      <v-col cols="6">
+        <v-checkbox
+          type="checkbox"
+          v-model="savePassword"
+          label="Se souvenir de moi?"
+          @change="saveUserInfos"
+        />
+      </v-col>
+      <v-col cols="6">
+        <v-checkbox
+          type="checkbox"
+          v-model="fullScreen"
+          label="Plein écran"
+          @change="saveUserInfos"
+        />
+      </v-col>
+    </v-row>
+    <v-btn
+      @click="connect"
+      color="primary"
+      :disabled="!(login && password)"
+      v-if="allowAuthentication && path"
+    >
+      connect
+    </v-btn>
+    <v-alert color="orange" type="warning" v-else>
+      Merci de configurer le chemin de <u>Mixmaster.Exe</u> dans les paramètres
+    </v-alert>
+    <v-alert color="red" type="error" v-if="errorMessage">
+      {{ errorMessage }}
+    </v-alert>
+  </v-card>
 </template>
 
 <script>

@@ -5,6 +5,7 @@ import Functionnalities from "@/views/Functionnalities/Functionnalities.vue";
 import MixLevelResult from "@/views/Functionnalities/SimpleFunctionnalities/MixLevelResult.vue";
 import MixTree from "@/views/MixTree/MixTree.vue";
 import Henchs from "@/views/HenchsSearch/HenchsSearch.vue";
+import Changelogs from "@/views/News/Pages/Changelogs.vue";
 import Settings from "@/views/Settings/Settings.vue";
 
 Vue.use(VueRouter);
@@ -35,6 +36,11 @@ const routes = [
     path: "/henchs-search",
     name: "Recherche de Henchs",
     component: Henchs
+  },
+  {
+    path: "/news/changelogs",
+    name: "Changelogs News",
+    component: Changelogs
   },
   {
     path: "/settings",

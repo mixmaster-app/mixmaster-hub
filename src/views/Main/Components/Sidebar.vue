@@ -7,7 +7,7 @@
     fixed
     app
   >
-    <v-row class="fill-height">
+    <v-row class="fill-height no-gutters">
       <v-col class="align-self-start justify-start">
         <v-list nav dense>
           <v-list-item link to="/home">
@@ -32,6 +32,13 @@
       </v-col>
       <v-col class="align-self-end justify-end">
         <v-list nav dense>
+          <v-divider class="mt-1 mb-1"></v-divider>
+          <v-list-item link to="/news/changelogs">
+            <v-list-item-icon>
+              <v-icon>mdi-format-list-text</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title> Changelogs </v-list-item-title>
+          </v-list-item>
           <v-list-item link to="/settings">
             <v-list-item-icon>
               <v-icon>mdi-cog-outline</v-icon>

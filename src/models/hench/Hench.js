@@ -41,7 +41,9 @@ class Hench {
   }
 
   getImageTypePath() {
-    return require("@/assets/hench/type/" + this.type.id.toString() + ".png");
+    return require("@/assets/img/hench/type/" +
+      this.type.id.toString() +
+      ".png");
   }
 
   getImageAvatar() {

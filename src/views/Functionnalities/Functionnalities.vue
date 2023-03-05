@@ -40,9 +40,9 @@ export default {
   methods: {
     getFuncImg(imageName) {
       try {
-        return require(`@/assets/functionnality/${imageName}.png`);
+        return require(`@/assets/img/functionnality/${imageName}.png`);
       } catch (e) {
-        return require(`@/assets/functionnality/default.png`);
+        return require(`@/assets/img/functionnality/default.png`);
       }
     }
   }

@@ -25,7 +25,7 @@
         >
           <v-row class="fill-height mt-1" align="center" justify="center">
             <v-avatar size="48" color="white">
-              <img src="@/assets/functionnality/default.png" />
+              <img src="@/assets/img/functionnality/default.png" />
             </v-avatar>
             <v-card-title class="caption text-center user-none">
               Default
