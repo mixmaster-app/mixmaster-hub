@@ -2,7 +2,7 @@
   <v-carousel
     class="fill-height fill-width rounded"
     hide-delimiter-background
-    show-arrows="false"
+    :show-arrows="false"
   >
     <v-carousel-item v-for="news in newsList" :key="news.i" :src="news.img">
       <v-container class="rounded-0 fill-height fluid pa-0 ma-0 pb-3">

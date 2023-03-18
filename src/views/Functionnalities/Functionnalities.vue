@@ -1,20 +1,24 @@
 <template>
   <div class="main">
     <v-row no-gutters>
-      <div v-for="(index, id) in filterIndex" :key="id">
-        <v-card class="pa-1 ma-3" :to="index.path" :title="index.description">
+      <div v-for="(functionnality, id) in enabledFunctionnalities" :key="id">
+        <v-card
+          class="pa-1 ma-3"
+          :to="functionnality.path"
+          :title="functionnality.description"
+        >
           <v-img
             class="ma-2 rounded-lg"
             height="128"
             contain
-            :src="getFuncImg(index.imageName)"
-            :alt="index.name"
+            :src="getFuncImg(functionnality.image)"
+            :alt="functionnality.name"
           ></v-img>
           <v-card-title
             class="caption text-center user-none"
             style="display:inherit !important"
           >
-            {{ index.name }}
+            {{ functionnality.name }}
           </v-card-title>
         </v-card>
       </div>
@@ -23,18 +27,18 @@
 </template>
 
 <script>
-import ROUTE_LIST from "@/router/routes.js";
+import { AppRoutes } from "@/router/index";
 
 export default {
   name: "Functionnality",
   data() {
     return {
-      indexList: ROUTE_LIST
+      routes: AppRoutes
     };
   },
   computed: {
-    filterIndex() {
-      return this.indexList.filter(i => i.doDspInFunctionnality === true);
+    enabledFunctionnalities() {
+      return this.routes.filter(i => i.isDisplayedInFunctionnality === true);
     }
   },
   methods: {
