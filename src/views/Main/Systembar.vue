@@ -1,5 +1,5 @@
 <template>
-  <v-system-bar height="30" app class="user-none">
+  <v-system-bar height="30" app class="user-none max-z-index">
     <v-img
       src="@/assets/logo.png"
       contain

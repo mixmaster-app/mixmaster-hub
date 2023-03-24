@@ -28,7 +28,7 @@ const AppRoutes = [
     .disableDisplayInFunctionnality(),
   // Henchs
   new Route("/henchs-search", Henchs)
-    .setIcon("mdi-google-downasaur")
+    .setIcon("mdi-magnify")
     .setName("Recherche de Henchs")
     .setImage("03_henchlist"),
   // MixTree

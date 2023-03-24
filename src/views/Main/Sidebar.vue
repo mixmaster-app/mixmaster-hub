@@ -1,5 +1,6 @@
 <template>
   <v-navigation-drawer
+    class="max-z-index"
     permanent
     persistent
     mini-variant

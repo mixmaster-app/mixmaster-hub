@@ -34,18 +34,10 @@ async function getAllHenchs() {
 
 async function getAllHenchWithFilter({
   search,
-  limit,
   types,
   minimumLevel,
   maximumLevel
 }) {
-  console.log({
-    search: search,
-    limit: limit,
-    types: types.join(","),
-    minimumLevel: minimumLevel,
-    maximumLevel: maximumLevel
-  });
   search = encodeURI(search);
   let url = `/hench/filter/${search}?`;
   if (types.length) {
@@ -53,7 +45,6 @@ async function getAllHenchWithFilter({
   }
   url += `&minimumLevel=${minimumLevel}`;
   url += `&maximumLevel=${maximumLevel}`;
-  console.log(url);
 
   return new Promise((resolve, reject) => {
     get(url)

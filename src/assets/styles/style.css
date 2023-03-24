@@ -97,3 +97,6 @@ a {
   overflow-y: auto;
   overflow-x: hidden;
 }
+.max-z-index {
+  z-index: 99999;
+}
