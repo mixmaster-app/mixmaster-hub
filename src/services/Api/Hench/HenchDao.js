@@ -22,7 +22,41 @@ async function castResponseToHench(data) {
  */
 async function getAllHenchs() {
   return new Promise((resolve, reject) => {
-    get(`/henchs?limit=80`)
+    get(`/henchs?limit=100`)
+      .then(result => {
+        return resolve(castResponseToHenchArray(result.data));
+      })
+      .catch(error => {
+        return reject(error);
+      });
+  });
+}
+
+async function getAllHenchWithFilter({
+  search,
+  limit,
+  types,
+  minimumLevel,
+  maximumLevel
+}) {
+  console.log({
+    search: search,
+    limit: limit,
+    types: types.join(","),
+    minimumLevel: minimumLevel,
+    maximumLevel: maximumLevel
+  });
+  search = encodeURI(search);
+  let url = `/hench/filter/${search}?`;
+  if (types.length) {
+    url += `&types=${types.join(",")}`;
+  }
+  url += `&minimumLevel=${minimumLevel}`;
+  url += `&maximumLevel=${maximumLevel}`;
+  console.log(url);
+
+  return new Promise((resolve, reject) => {
+    get(url)
       .then(result => {
         return resolve(castResponseToHenchArray(result.data));
       })
@@ -33,6 +67,7 @@ async function getAllHenchs() {
 }
 
 async function getAllHenchWhereLibelleContains(search) {
+  search = encodeURI(search);
   return new Promise((resolve, reject) => {
     get(`/hench/search/${search}`)
       .then(result => {
@@ -45,6 +80,7 @@ async function getAllHenchWhereLibelleContains(search) {
 }
 
 async function getOneHenchWhereLibelleContains(search) {
+  search = encodeURI(search);
   return new Promise((resolve, reject) => {
     get(`/hench/search/${search}?limit=1`)
       .then(result => {
@@ -83,6 +119,7 @@ async function getOneById(id) {
 export {
   getAllHenchs,
   getAllHenchWhereLibelleContains,
+  getAllHenchWithFilter,
   getOneHenchWhereLibelleContains,
   getAllMixsForHenchId,
   getOneById

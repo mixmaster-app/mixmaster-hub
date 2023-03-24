@@ -1,4 +1,4 @@
-import Type from "@/models/hench/HenchType.js";
+import { Type } from "@/models/hench/HenchType.js";
 import Stats from "@/models/hench/HenchStats.js";
 import Zone from "@/models/hench/Zone.js";
 import HenchMix from "@/models/hench/HenchMix.js";
