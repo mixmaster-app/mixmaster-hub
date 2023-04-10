@@ -5,7 +5,7 @@ module.exports = {
       builderOPtions: {
         productName: "mixmaster-hub",
         win: {
-          icon: "./public/icon.ico"
+          icon: "./public/img/icon.ico"
         },
         publish: [
           {
