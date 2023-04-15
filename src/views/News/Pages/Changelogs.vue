@@ -32,7 +32,7 @@
 
 <script>
 import pjson from "@/../package.json";
-import changelogs from "@/services/Changelogs";
+import changelogs from "@/services/Changelogs.js";
 
 export default {
   name: "Changelogs",

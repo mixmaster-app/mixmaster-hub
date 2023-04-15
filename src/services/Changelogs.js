@@ -2,6 +2,16 @@ import { Version } from "../models/utils/Version.js";
 
 let changelogs = [];
 changelogs.push(
+  new Version("v1.3.0", "🚀", "2023-04-15")
+    .addChanges("Improve", [
+      "Fix SystemBar display on modal opened",
+      "Add another HenchCalculator components"
+    ])
+    .addChanges("Added", [
+      "Add a splash screen (loading screen)",
+      "Add update notifcation and button to download updates"
+    ])
+    .addChanges("Technical", ["Move Hench Calculator to components"]),
   new Version("v1.2.4", "🚀", "2023-03-05")
     .addChanges("Improve", [
       "Change Some Icons",
