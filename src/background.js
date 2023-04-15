@@ -45,6 +45,18 @@ async function createMainWindow() {
     }
   });
 
+  autoUpdater.on("update-available", () => {
+    mainWindow.webContents.send("app-update-information", {
+      hasNewVersionAvailable: true
+    });
+  });
+
+  autoUpdater.on("update-not-available", () => {
+    mainWindow.webContents.send("app-update-information", {
+      hasNewVersionAvailable: false
+    });
+  });
+
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     await mainWindow.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
@@ -52,12 +64,19 @@ async function createMainWindow() {
     createProtocol("app");
     // Load the index.html when not in development
     mainWindow.loadURL("app://./index.html");
-    autoUpdater.checkForUpdatesAndNotify();
   }
+  autoUpdater.autoDownload = false;
+  autoUpdater.checkForUpdates();
+
   mainWindow.webContents.setZoomFactor(1.0);
 
   mainWindow.on("closed", () => {
     mainWindow = null;
+    try {
+      splashWindow.close();
+    } catch (e) {
+      console.error(e);
+    }
   });
 }
 
@@ -84,6 +103,12 @@ async function createSplashWindow() {
     splashWindow = null;
   });
 }
+windowEvents.on("launch-app-update", () => {
+  autoUpdater.downloadUpdate();
+  autoUpdater.once("update-downloaded", () => {
+    autoUpdater.quitAndInstall();
+  });
+});
 
 windowEvents.on("close-app", () => {
   app.quit();
@@ -126,16 +151,18 @@ app.on("ready", async () => {
     }
   }
   createMainWindow();
-  try {
-    mainWindow.on("ready-to-show", () => {
-      setTimeout(() => {
+  mainWindow.on("ready-to-show", () => {
+    setTimeout(() => {
+      if (!mainWindow.isVisible()) {
         mainWindow.show();
-        splashWindow.close();
-      }, 150);
-    });
-  } catch (e) {
-    console.log(e);
-  }
+        try {
+          splashWindow.close();
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    }, 150);
+  });
 });
 
 // Exit cleanly on request from parent process in development mode.

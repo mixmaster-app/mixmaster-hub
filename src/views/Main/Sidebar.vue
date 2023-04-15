@@ -24,6 +24,7 @@
         />
       </v-col>
       <v-col class="align-self-end justify-end">
+        <UpdateIcon />
         <SidebarItemsList
           :items="this.filterIndex(this.routeCategory.Bottom)"
           :topDivider="true"
@@ -35,6 +36,7 @@
 </template>
 
 <script>
+import UpdateIcon from "./Components/UpdateIcon.vue";
 import SidebarItemsList from "./Components/SidebarItemsList.vue";
 import { AppRoutes } from "@/router/index";
 import { RouteCategory } from "@/models/utils/Route";
@@ -42,7 +44,7 @@ import { RouteCategory } from "@/models/utils/Route";
 export default {
   name: "Sidebar",
   props: ["active"],
-  components: { SidebarItemsList },
+  components: { SidebarItemsList, UpdateIcon },
   data() {
     return {
       routeCategory: RouteCategory,

@@ -1,6 +1,6 @@
 <template>
   <v-list nav dense>
-    <v-divider v-if="this.hasTopDivider" class="mt-1 mb-1" />
+    <v-divider v-if="this.hasTopDivider" class="mb-1" />
     <v-list-item
       v-for="(tab, key) in this.items"
       :key="key"

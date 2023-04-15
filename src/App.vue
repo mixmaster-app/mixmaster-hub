@@ -23,8 +23,6 @@ export default {
     return {
       activeSidebar: true
     };
-  },
-  methods: {},
-  mounted() {}
+  }
 };
 </script>
