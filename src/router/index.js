@@ -7,8 +7,8 @@ import MixTree from "@/views/MixTree/MixTree.vue";
 import Henchs from "@/views/HenchsSearch/HenchsSearch.vue";
 import Changelogs from "@/views/News/Pages/Changelogs.vue";
 import Settings from "@/views/Settings/Settings.vue";
-import { Route } from "@/models/utils/Route";
-import { RouteCategory } from "../models/utils/Route";
+import { Route } from "@/models/Utils/Route";
+import { RouteCategory } from "../models/Utils/Route";
 
 Vue.use(VueRouter);
 

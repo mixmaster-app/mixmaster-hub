@@ -11,6 +11,7 @@ export { store as VueStore };
 export default new Vuex.Store({
   state: {
     henchMixFavorite: store.get("hench_mix_favorite") || [],
+    henchCalculators: store.get("hench_calculators"),
     userInfos: {
       exe: store.get("user_infos")?.exe,
       login: store.get("user_infos")?.login,
@@ -55,9 +56,14 @@ export default new Vuex.Store({
       state.henchMixFavorite.splice(value, 1);
       store.set("hench_mix_favorite", state.henchMixFavorite);
     },
+    saveHenchCalculatorsState(state, value) {
+      state.henchCalculators = value;
+      store.set("hench_calculators", state.henchCalculators);
+    },
     resetStore(state, value) {
       if (value) {
         state.henchMixFavorite = [];
+        state.henchCalculators = [];
         state.userInfos = {
           exe: undefined,
           login: undefined,
@@ -65,6 +71,7 @@ export default new Vuex.Store({
           savePassword: undefined,
           fullScreen: undefined
         };
+        store.set("hench_calculators", state.henchCalculators);
         store.set("hench_mix_favorite", state.henchMixFavorite);
         store.set("user_infos", state.userInfos);
       }

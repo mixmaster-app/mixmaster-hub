@@ -39,7 +39,7 @@
 import UpdateIcon from "./Components/UpdateIcon.vue";
 import SidebarItemsList from "./Components/SidebarItemsList.vue";
 import { AppRoutes } from "@/router/index";
-import { RouteCategory } from "@/models/utils/Route";
+import { RouteCategory } from "@/models/Utils/Route";
 
 export default {
   name: "Sidebar",
