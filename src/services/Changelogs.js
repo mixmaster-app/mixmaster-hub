@@ -1,4 +1,4 @@
-import { Version } from "../models/utils/Version.js";
+import { Version } from "../models/Utils/Version.js";
 
 let changelogs = [];
 changelogs.push(
