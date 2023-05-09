@@ -59,6 +59,9 @@ export default {
       this.$store.commit("saveHenchCalculatorsState", this.calculators);
     },
     checkIfCalculatorIsEmpty() {
+      if (!Array.isArray(this.calculators)) {
+        this.calculators = [];
+      }
       if (this.calculators.length == 0) {
         this.calculators.push(new HenchCompute(null, null));
       }

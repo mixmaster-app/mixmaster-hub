@@ -1,7 +1,7 @@
 import { HenchComplex } from "@/models/Utils/Components/HenchComplex.js";
 
 function createHenchComplex(data) {
-  return data ?? new HenchComplex(null, 0);
+  return new HenchComplex(data?.hench, data?.henchLevel);
 }
 
 export { createHenchComplex };

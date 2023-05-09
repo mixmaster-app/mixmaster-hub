@@ -11,7 +11,7 @@ export { store as VueStore };
 export default new Vuex.Store({
   state: {
     henchMixFavorite: store.get("hench_mix_favorite") || [],
-    henchCalculators: store.get("hench_calculators"),
+    henchCalculators: store.get("hench_calculators") || [],
     userInfos: {
       exe: store.get("user_infos")?.exe,
       login: store.get("user_infos")?.login,
