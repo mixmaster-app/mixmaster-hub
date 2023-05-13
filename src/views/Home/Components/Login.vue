@@ -100,7 +100,7 @@ export default {
     connect() {
       this.saveUserInfos();
 
-      const command = ` cd "${this.path}" && start MixMaster.exe 4.644700 ${
+      const command = `cd /d "${this.path}" && start MixMaster.exe 4.644700 ${
         config.Mixmaster.ip
       } 23500 ${
         this.fullScreen ? "1" : "0" + " " + this.login + " " + this.password
