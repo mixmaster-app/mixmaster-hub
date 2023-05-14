@@ -2,10 +2,22 @@ module.exports = {
   transpileDependencies: ["vuetify"],
   pluginOptions: {
     electronBuilder: {
-      builderOPtions: {
+      builderOptions: {
+        appId: "fr.kiiow.mixmaster.hub",
         productName: "mixmaster-hub",
         win: {
-          icon: "./public/img/icon.ico"
+          icon: "./build/icon.ico",
+          target: "nsis"
+        },
+        nsis: {
+          allowElevation: false,
+          allowToChangeInstallationDirectory: true,
+          installerIcon: "./build/installer.ico",
+          installerHeaderIcon: "./build/icon.ico",
+          installerSidebar: "./build/installerSidebar.bmp",
+          uninstallerSidebar: "./build/installerSidebar.bmp",
+          oneClick: false,
+          perMachine: false
         },
         publish: [
           {
