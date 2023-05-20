@@ -81,7 +81,7 @@ export default {
     return {
       selectedTypes: [],
       types: listOfTypes,
-      levelRange: [0, 250],
+      levelRange: [0, 300],
       henchList: [],
       searchString: "",
       noResult: false,
