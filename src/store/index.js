@@ -10,6 +10,7 @@ const store = new Store();
 export { store as VueStore };
 export default new Vuex.Store({
   state: {
+    isDevelopper: store.get("is_developper") || false,
     henchMixFavorite: store.get("hench_mix_favorite") || [],
     henchCalculators: store.get("hench_calculators") || [],
     userInfos: {
@@ -60,8 +61,13 @@ export default new Vuex.Store({
       state.henchCalculators = value;
       store.set("hench_calculators", state.henchCalculators);
     },
+    enableDevelopperMode(state) {
+      state.isDevelopper = true;
+      store.set("is_developper", state.isDevelopper);
+    },
     resetStore(state, value) {
       if (value) {
+        state.isDevelopper = false;
         state.henchMixFavorite = [];
         state.henchCalculators = [];
         state.userInfos = {
