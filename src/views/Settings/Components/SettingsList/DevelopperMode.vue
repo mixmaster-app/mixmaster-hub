@@ -1,21 +1,20 @@
 <template>
-  <tr v-if="isDevelopper()">
-    <td class="text-left pa-2">
+  <tr>
+    <td class="text-left pa-2" colspan="2">
       <b>Mode développeur</b>
       <p class="mt-2">
-        Ah ouais ? T'es dev ?
+        <ServerList />
       </p>
-    </td>
-    <td class="text-right">
-      <span>💻 bah c'est useless pour le moment </span>
     </td>
   </tr>
 </template>
 
 <script>
+import ServerList from "@/views/Settings/Components/SettingsList/DevelopperMode/ServerList.vue";
+
 export default {
   name: "DevelopperMode",
-  components: {},
+  components: { ServerList },
   data() {
     return {};
   },
