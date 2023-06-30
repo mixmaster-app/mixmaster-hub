@@ -2,6 +2,17 @@ import { Version } from "../models/Utils/Version.js";
 
 let changelogs = [];
 changelogs.push(
+  new Version("v1.3.3", "🚀", "2023-06-30").addChanges("General", [
+    "Fix Launcher in different partition than Game",
+    "Up Max level range",
+    "Add some installer Options"
+  ]),
+  new Version("v1.3.2", "🚀", "2023-05-09").addChanges("Fixes", [
+    "Fix HenchCalculator cache"
+  ]),
+  new Version("v1.3.1", "🚀", "2023-05-07").addChanges("General", [
+    "Add unlimited HenchCalculator"
+  ]),
   new Version("v1.3.0", "🚀", "2023-04-15")
     .addChanges("Improve", [
       "Fix SystemBar display on modal opened",
