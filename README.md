@@ -18,7 +18,7 @@ Go to the [release section of mixmaster hub][release-github-link], click on `Ass
 
 ### Other install methods
 
-Clone the repository locally, and build the project
+Clone the repository locally, and build the project (node 16.20.2)
  - `npm install` Download the library of the project
  - Edit the Config file in `src/services`
  - `npm run build` To build the exe
