@@ -22,7 +22,7 @@ async function castResponseToHench(data) {
  */
 async function getAllHenchs() {
   return new Promise((resolve, reject) => {
-    get(`/henchs?limit=100`)
+    get(`/henchs/q?limit=100`)
       .then(result => {
         return resolve(castResponseToHenchArray(result.data));
       })
@@ -39,12 +39,12 @@ async function getAllHenchWithFilter({
   maximumLevel
 }) {
   search = encodeURI(search);
-  let url = `/hench/filter/${search}?`;
+  let url = `/henchs/q?name=${search}`;
   if (types.length) {
     url += `&types=${types.join(",")}`;
   }
-  url += `&minimumLevel=${minimumLevel}`;
-  url += `&maximumLevel=${maximumLevel}`;
+  url += `&level_minimum=${minimumLevel}`;
+  url += `&level_maximum=${maximumLevel}`;
 
   return new Promise((resolve, reject) => {
     get(url)
@@ -60,7 +60,7 @@ async function getAllHenchWithFilter({
 async function getAllHenchWhereLibelleContains(search) {
   search = encodeURI(search);
   return new Promise((resolve, reject) => {
-    get(`/hench/search/${search}`)
+    get(`/hench/q?name=${search}`)
       .then(result => {
         return resolve(castResponseToHenchArray(result.data));
       })
@@ -73,7 +73,7 @@ async function getAllHenchWhereLibelleContains(search) {
 async function getOneHenchWhereLibelleContains(search) {
   search = encodeURI(search);
   return new Promise((resolve, reject) => {
-    get(`/hench/search/${search}?limit=1`)
+    get(`/hench/q?name=${search}&limit=1`)
       .then(result => {
         return resolve(castResponseToHench(result.data[0]));
       })
@@ -85,7 +85,7 @@ async function getOneHenchWhereLibelleContains(search) {
 
 async function getAllMixsForHenchId(id) {
   return new Promise((resolve, reject) => {
-    get(`/hench/id/${id}/mixs`)
+    get(`/hench/${id}/mixs`)
       .then(result => {
         return resolve(result.data);
       })
