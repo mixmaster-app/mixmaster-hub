@@ -22,7 +22,7 @@ class Hench {
   evolutions;
 
   constructor(data) {
-    this.note = data.note || "";
+    this.note = "";
     this.id = data.id || 0;
     this.name = data.name || "";
     this.type = new Type(data.type.id, data.type.name) || undefined;
