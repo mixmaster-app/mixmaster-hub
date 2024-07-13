@@ -7,7 +7,7 @@
       </p>
     </td>
     <td class="text-right">
-      <v-chip @click="up()">Version - {{ this.package.fullVersion }}</v-chip>
+      <v-chip @click="up()">Version - {{ this.package.version }}</v-chip>
     </td>
   </tr>
 </template>

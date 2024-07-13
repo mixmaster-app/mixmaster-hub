@@ -1,8 +1,7 @@
 {
   "name": "mixmaster-hub",
   "fullName": "MixmasterHub",
-  "version": "1.4.0",
-  "fullVersion": "1.4.0",
+  "version": "1.4.1",
   "description": "MixmasterHub application",
   "author": {
     "name": "Kiiow",

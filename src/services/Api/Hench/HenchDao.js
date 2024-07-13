@@ -60,7 +60,7 @@ async function getAllHenchWithFilter({
 async function getAllHenchWhereLibelleContains(search) {
   search = encodeURI(search);
   return new Promise((resolve, reject) => {
-    get(`/hench/q?name=${search}`)
+    get(`/henchs/q?name=${search}`)
       .then(result => {
         return resolve(castResponseToHenchArray(result.data));
       })
@@ -73,7 +73,7 @@ async function getAllHenchWhereLibelleContains(search) {
 async function getOneHenchWhereLibelleContains(search) {
   search = encodeURI(search);
   return new Promise((resolve, reject) => {
-    get(`/hench/q?name=${search}&limit=1`)
+    get(`/henchs/q?name=${search}&limit=1`)
       .then(result => {
         return resolve(castResponseToHench(result.data[0]));
       })

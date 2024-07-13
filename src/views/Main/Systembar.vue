@@ -9,7 +9,7 @@
     ></v-img>
     <span class="drag">
       {{ this.package.fullName }}
-      <span class="version">({{ this.package.fullVersion }})</span>
+      <span class="version">({{ this.package.version }})</span>
     </span>
     <v-spacer class="drag syst-spacer"></v-spacer>
     <v-icon @click="minimize">

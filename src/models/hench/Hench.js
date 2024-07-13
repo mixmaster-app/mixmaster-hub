@@ -30,7 +30,7 @@ class Hench {
     this.atk_type = data.atk_type || 1; // Distance(2) ou Corps à corps(1)
     this.minimum_level = data.minimum_level || 0;
     this.maximum_level = data.maximum_level || 0;
-    this.img_url = data.img_url || "";
+    this.img_url = `https://mixmaster-online.fr/${data.img_url}` || "";
     this.imageAvatar = this.getImageAvatar();
     this.is_dropable = data.is_dropable == 1 || false;
     this.is_mixable = data.is_mixable == 1 || false;
