@@ -34,7 +34,7 @@
           <v-range-slider
             v-model="levelRange"
             :min="0"
-            :max="250"
+            :max="300"
             :step="1"
             thumb-label="always"
             thumb-size="0"
@@ -116,7 +116,7 @@ export default {
           search: this.searchString,
           types: this.selectedTypes,
           minimumLevel: this.levelRange[0] ?? 0,
-          maximumLevel: this.levelRange[1] ?? 250
+          maximumLevel: this.levelRange[1] ?? 300
         })
           .then(res => {
             this.henchList = res;
